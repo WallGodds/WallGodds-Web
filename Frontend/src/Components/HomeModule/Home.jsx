@@ -29,10 +29,10 @@ const Home = () => {
                 </h1>
               </div>
               <div className={styles.buttons}>
-                <button class={styles.btn}>
+                <button className={styles.btn}>
                   BECOME A <span className={styles.god}>GOD</span>
                 </button>
-                <button class={styles.btn}>
+                <button className={styles.btn}>
                   EXPLORE <span className={styles.heaven}>HEAVEN</span>
                 </button>
               </div>
