@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import NavBar from "../CommonModule/NavBarModule/NavBar";
 import styles from "./Aboutus.module.css";
-import { Footer } from "../CommonModule/FooterModule/Footer";
 
 const Aboutus = () => {
   const aboutContentRef = useRef(null);
@@ -168,7 +167,6 @@ const Aboutus = () => {
               </div>
             </div>
           </div>
-          <Footer />
         </div>
       </div>
       <div

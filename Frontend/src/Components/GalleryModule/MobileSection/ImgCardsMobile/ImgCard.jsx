@@ -8,15 +8,45 @@ import HeartFilled from "/Heart-filled.svg";
 import Download from "/Vector.svg";
 import Popup from "../../../CommonModule/PopupModule/Popup.jsx";
 import Toast from "../../../CommonModule/ToastModule/Toast.jsx";
+import Skeleton from "../../../CommonModule/SkeletonModule/Skeleton.jsx";
 
 const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
+    const [imageLoading, setImageLoading] = useState(true);
     const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
-    const handleDownloadClick = () => {
-        setIsPopupOpen(true);
+    const handleDownloadClick = async () => {
+        try {
+            const response = await fetch(imageSrc);
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            
+            // Extract filename from path or use a default
+            const filename = imageSrc.split('/').pop() || 'wallpaper.png';
+            link.setAttribute('download', filename);
+            
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+            window.URL.revokeObjectURL(url);
+
+            setToast({
+                show: true,
+                message: 'Download started successfully!',
+                type: 'success'
+            });
+        } catch (error) {
+            console.error("Download failed:", error);
+            setToast({
+                show: true,
+                message: 'Failed to download image. Please try again.',
+                type: 'error'
+            });
+        }
     };
 
     const closePopup = () => {
@@ -49,32 +79,41 @@ const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
         <div className={Style.imgCard}>
             {/* Image Container with Overlay Icons */}
             <div className={Style.imageContainer}>
-                <img src={imageSrc} alt="Wallpaper" className={Style.image} />
-
-                {/* Left (Bookmark) & Right (Heart) Overlay Icons */}
+                {imageLoading && (
+                    <div className={Style.skeletonOverlay}>
+                        <Skeleton width="100%" height="100%" borderRadius="12px" />
+                    </div>
+                )}
                 <img 
-                    src={isSaved ? SaveFilled : Save} 
-                    alt="Save" 
-                    className={`${Style.icon} ${Style.bookmarkIcon} ${isSaved ? Style.saved : ''}`}
-                    onClick={handleSaveClick}
-                />
-                <img 
-                    src={isLiked ? HeartFilled : Heart} 
-                    alt="Heart" 
-                    className={`${Style.icon} ${Style.heartIcon} ${isLiked ? Style.liked : ''}`}
-                    onClick={handleLikeClick}
+                    src={imageSrc} 
+                    alt="Wallpaper" 
+                    className={`${Style.image} ${imageLoading ? Style.hidden : ''}`} 
+                    onLoad={() => setImageLoading(false)}
                 />
 
-                {/* Username (Always Visible on Large Screens) */}
-                <span className={Style.username}>{username}</span>
-
-                {/* Username + Download Button in Bottom Overlay (ONLY for Mobile) */}
-                <div className={Style.bottomOverlay}>
-                    <span>{username}</span>
-                    <button className={Style.downloadBtn} onClick={handleDownloadClick}>
-                        Download <LiaDownloadSolid className={Style.downloadIcon} />
-                    </button>
-                </div>
+                {!imageLoading && (
+                    <>
+                        <img 
+                            src={isSaved ? SaveFilled : Save} 
+                            alt="Save" 
+                            className={`${Style.icon} ${Style.bookmarkIcon} ${isSaved ? Style.saved : ''}`}
+                            onClick={handleSaveClick}
+                        />
+                        <img 
+                            src={isLiked ? HeartFilled : Heart} 
+                            alt="Heart" 
+                            className={`${Style.icon} ${Style.heartIcon} ${isLiked ? Style.liked : ''}`}
+                            onClick={handleLikeClick}
+                        />
+                        <span className={Style.username}>{username}</span>
+                        <div className={Style.bottomOverlay}>
+                            <span>{username}</span>
+                            <button className={Style.downloadBtn} onClick={handleDownloadClick}>
+                                Download <LiaDownloadSolid className={Style.downloadIcon} />
+                            </button>
+                        </div>
+                    </>
+                )}
             </div>
 
             {/* Download Button BELOW image (ONLY for Large Screens) */}

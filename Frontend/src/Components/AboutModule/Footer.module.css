@@ -4,7 +4,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 3rem 1.5rem 1.5rem;
-    width: 100%;
+    margin-top: 4rem;
 }
 
 .container {
@@ -27,7 +27,7 @@
 .brand p {
     color: #aaa;
     font-size: 0.9rem;
-    max-width: 250px;
+    max-width: 200px;
 }
 
 .links h3, .social h3 {
@@ -51,6 +51,7 @@
     color: #aaa;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 0.95rem;
 }
 
 .links a:hover {
@@ -67,6 +68,7 @@
 .icons a {
     color: #aaa;
     text-decoration: none;
+    font-size: 0.95rem;
     transition: color 0.3s;
 }
 
@@ -86,6 +88,8 @@
 @media (max-width: 768px) {
     .container {
         text-align: center;
-        justify-items: center;
+    }
+    .brand p {
+        max-width: 100%;
     }
 }

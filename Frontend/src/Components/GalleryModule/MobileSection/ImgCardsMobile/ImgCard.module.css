@@ -22,6 +22,20 @@
     width: 100%;
     display: block;
     border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.skeletonOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
 }
 
 /* Enhanced Common Icon Styling */

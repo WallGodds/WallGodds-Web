@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../CommonModule/NavBarModule/NavBar";
 import styles from "./Home.module.css";
-import {Footer} from "../CommonModule/FooterModule/Footer";
 import character from "/Character.svg";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <NavBar />
@@ -29,10 +31,10 @@ const Home = () => {
                 </h1>
               </div>
               <div className={styles.buttons}>
-                <button className={styles.btn}>
+                <button className={styles.btn} onClick={() => navigate("/signup")}>
                   BECOME A <span className={styles.god}>GOD</span>
                 </button>
-                <button className={styles.btn}>
+                <button className={styles.btn} onClick={() => navigate("/gallery")}>
                   EXPLORE <span className={styles.heaven}>HEAVEN</span>
                 </button>
               </div>
@@ -40,7 +42,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
