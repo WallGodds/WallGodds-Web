@@ -1,7 +1,7 @@
 .imgCard {
     position: relative;
     width: 100%;
-    max-width: 80em;
+    /* max-width: 80em; Removed to allow grid control */
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -13,6 +13,8 @@
 .imageContainer {
     position: relative;
     width: 100%;
+    height: 100%; /* Ensure it fills card */
+    aspect-ratio: 16/9; /* Maintain aspect ratio if needed, or let image define it */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -20,6 +22,8 @@
 /* Image */
 .image {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
     border-radius: 10px;
     transition: opacity 0.5s ease-in-out;
@@ -49,18 +53,20 @@
 
 /* Bookmark Icon (Top-Left) */
 .bookmarkIcon {
-    top: 1px;
-    left: 1px;
+    top: 8px;
+    left: 8px;
     color: gray;
-    font-size: 2em;
+    width: 32px; /* Fixed size for consistency */
+    height: 32px;
 }
 
 /* Heart Icon (Top-Right) */
 .heartIcon {
-    top: 4px;
-    right: 4px;
+    top: 8px;
+    right: 8px;
     color: red;
-    font-size: 2em;
+    width: 32px;
+    height: 32px;
 }
 
 /* Enhanced Hover Effects */
@@ -156,15 +162,15 @@
     100% { transform: scale(1); }
 }
 
-/* Username (Always Visible) */
+/* Username (Always Visible on Desktop) */
 .username {
     position: absolute;
     bottom: 10px;
     left: 10px;
     color: #FFFFFF;
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Comfortaa','sans-serif';
-    /* background: rgba(255, 255, 255, 0.5); */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Improve visibility over images */
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -184,15 +190,14 @@
     display: flex;
     justify-content: center;
     margin-top: 8px;
-    /* padding:0em 3em; */
 }
 
 .downloadBtn {
     background: transparent;
     color: #a9a7a7;
     border: 1px solid #a9a7a7;
-    padding: 0.3em 0.7em;
-    font-size: 0.7em;
+    padding: 0.5em 1.2em;
+    font-size: 0.9em;
     font-family: 'Comfortaa','sans-serif';
     border-radius: 0.6em;
     cursor: pointer;
@@ -214,22 +219,19 @@
     color: rgb(248, 248, 248);
 }
 
-.downloadBtn {
-    cursor: pointer;
-}
-
 /* Bottom Overlay for Mobile Screens (Hidden by Default) */
 .bottomOverlay {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 0;
     width: 100%;
-    display: none; /* Hide by default */
-    justify-content: space-around;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    display: none; /* Hide by default on desktop */
+    justify-content: space-between;
     align-items: center;
-    padding: 0.3em 0.4em;
+    padding: 10px 15px;
     border-radius: 0 0 10px 10px;
-    color:rgba(255, 255, 255, 0.272)
+    color:rgba(255, 255, 255, 0.9);
 }
 
 /* Responsive Styles */
@@ -242,32 +244,27 @@
         display: none; /* Hide separate button on mobile */
     }
 
-    /* Hide the regular username and move it into the bottom overlay */
+    /* Hide the floating username and use the one in bottomOverlay */
     .username {
         display: none;
     }
 
     .downloadBtn{
-        background-color:#7e7e7e4e ;
-        font-size:0.5em;
+        background-color: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        font-size: 0.8em;
+        padding: 0.4em 0.8em;
     }
 
-    span{
-        font-size: 0.7em;
+    .bottomOverlay span {
+        font-size: 0.9em;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
-        padding: 2px 6px;
-        border-radius: 4px;
     }
-
-    span:hover {
-        background: linear-gradient(135deg, #F2AB93 0%, #F76582 100%);
-        color: #FFFFFF !important;
-        transform: scale(1.05);
-        box-shadow: 0 4px 15px rgba(247, 101, 130, 0.3);
+    
+    .bottomOverlay span:hover {
+        color: #F76582;
     }
-
-    /* .username{
-        font-size: 0.7em;
-    } */
 }

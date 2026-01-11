@@ -1,4 +1,4 @@
-import ImgCard from "./ImgCardsTablet/ImgCard";
+import ImageCard from "../../CommonModule/ImageCardModule/ImageCard";
 import img1 from "./TabletAssets/tablet_wallpaper1.png"
 import img2 from "./TabletAssets/tablet_wallpaper2.png"
 import img3 from "./TabletAssets/tablet_wallpaper3.png"
@@ -11,24 +11,24 @@ const Tablet = () => {
     return (
         <div className={Styles.gallery}>
             <div className={Styles.imgCards}>
-                <ImgCard imageSrc={img3} />
-                <ImgCard imageSrc={img1} />
-                <ImgCard imageSrc={img2} />
+                <ImageCard imageSrc={img3} />
+                <ImageCard imageSrc={img1} />
+                <ImageCard imageSrc={img2} />
             </div>
             <div className={Styles.imgCards}>
-                <ImgCard imageSrc={img4} />
-                <ImgCard imageSrc={img5} />
-                <ImgCard imageSrc={img6} />
+                <ImageCard imageSrc={img4} />
+                <ImageCard imageSrc={img5} />
+                <ImageCard imageSrc={img6} />
             </div>
             <div className={Styles.imgCards}>
-                <ImgCard imageSrc={img1} />
-                <ImgCard imageSrc={img2} />
-                <ImgCard imageSrc={img3} />
+                <ImageCard imageSrc={img1} />
+                <ImageCard imageSrc={img2} />
+                <ImageCard imageSrc={img3} />
             </div>
             <div className={Styles.imgCards}>
-                <ImgCard imageSrc={img4} />
-                <ImgCard imageSrc={img5} />
-                <ImgCard imageSrc={img6} />
+                <ImageCard imageSrc={img4} />
+                <ImageCard imageSrc={img5} />
+                <ImageCard imageSrc={img6} />
             </div>
         </div>
     );

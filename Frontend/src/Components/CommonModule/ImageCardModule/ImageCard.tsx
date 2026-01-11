@@ -1,23 +1,36 @@
 import React, { useState } from "react";
-import Style from "./ImgCard.module.css";
+import Style from "./ImageCard.module.css";
 import { LiaDownloadSolid } from "react-icons/lia";
 import Save from "/Save.svg";
 import SaveFilled from "/Save-filled.svg";
 import Heart from "/Heart.svg";
 import HeartFilled from "/Heart-filled.svg";
-import Download from "/Vector.svg";
-import Popup from "../../../CommonModule/PopupModule/Popup.jsx";
-import Toast from "../../../CommonModule/ToastModule/Toast.jsx";
-import Skeleton from "../../../CommonModule/SkeletonModule/Skeleton.jsx";
+import Popup from "../PopupModule/Popup.jsx";
+import Toast from "../ToastModule/Toast.jsx";
+import Skeleton from "../SkeletonModule/Skeleton.jsx";
 
-const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [isLiked, setIsLiked] = useState(false);
-    const [isSaved, setIsSaved] = useState(false);
-    const [imageLoading, setImageLoading] = useState(true);
-    const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+interface ImageCardProps {
+    imageSrc: string;
+    username?: string;
+}
 
-    const handleDownloadClick = async () => {
+interface ToastState {
+    show: boolean;
+    message: string;
+    type: 'success' | 'error' | 'info' | 'warning';
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ imageSrc, username = "@ImgUser1" }) => {
+    const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+    const [isLiked, setIsLiked] = useState<boolean>(false);
+    const [isSaved, setIsSaved] = useState<boolean>(false);
+    const [imageLoading, setImageLoading] = useState<boolean>(true);
+    const [toast, setToast] = useState<ToastState>({ show: false, message: '', type: 'success' });
+
+    const handleDownloadClick = async (e: React.MouseEvent) => {
+        // Prevent event bubbling if clicking the button triggers parent click handlers
+        e.stopPropagation();
+        
         try {
             const response = await fetch(imageSrc);
             const blob = await response.blob();
@@ -53,7 +66,8 @@ const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
         setIsPopupOpen(false);
     };
 
-    const handleLikeClick = () => {
+    const handleLikeClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
         setIsLiked(!isLiked);
         setToast({
             show: true,
@@ -62,7 +76,8 @@ const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
         });
     };
 
-    const handleSaveClick = () => {
+    const handleSaveClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
         setIsSaved(!isSaved);
         setToast({
             show: true,
@@ -116,7 +131,7 @@ const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
                 )}
             </div>
 
-            {/* Download Button BELOW image (ONLY for Large Screens) */}
+            {/* Download Button BELOW image (Responsive fallback) */}
             <div className={Style.downloadBar}>
                 <button className={Style.downloadBtn} onClick={handleDownloadClick}>
                     Download <LiaDownloadSolid className={Style.downloadIcon} />
@@ -140,4 +155,4 @@ const ImgCard = ({ imageSrc, username = "@ImgUser1" }) => {
     );
 };
 
-export default ImgCard;
+export default ImageCard;

@@ -1,7 +1,8 @@
 # ❄️ Winter of Code 5.0 - Speed-Run Roadmap
 
-**Target Date:** February 1, 2026
-**Goal:** Submit 5+ high-quality PRs on Day 1 to establish a strong lead.
+**Target Date:** February 1, 2026  
+**Goal:** Submit 5+ high-quality PRs on Day 1 to establish a strong lead.  
+**Current Status:** 🚀 **STAGED & PUSHED TO FORK** (Ready for Feb 1st)
 
 ---
 
@@ -22,14 +23,16 @@
 - **Description:** Implement actual image blob download logic in `ImgCard`.
 - **Impact:** Restores missing core functionality.
 
-### 4. [Architecture] Component De-duplication 🚀 **HIGH PRIORITY**
+### 4. [Architecture] Component De-duplication ✅ **COMPLETE**
 
 - **Description:** Merge Mobile/Tablet/Desktop card components into a single responsive UI.
+- **Status:** Verified `GalleryCard` is used everywhere. Deleted 3 dead code directories (`ImgCardsDesktop`, `ImgCardsMobile`, `ImgCardsTablet`).
 - **Impact:** Reduces codebase size by ~30%, significantly improving maintainability.
 
-### 5. [TECH] TypeScript Foundations 🚀 **HIGH PRIORITY**
+### 5. [TECH] TypeScript Foundations 🚧 **IN PROGRESS**
 
 - **Description:** Initialize TypeScript and migrate core hooks/utils.
+- **Status:** `tsconfig.json` initialized. `ImageCard` converted to TypeScript (`.tsx`).
 - **Impact:** Modernizes codebase and prevents runtime errors.
 
 ---

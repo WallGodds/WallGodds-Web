@@ -1,4 +1,4 @@
-import ImgCard from "./ImgCardsMobile/ImgCard";
+import ImageCard from "../../CommonModule/ImageCardModule/ImageCard";
 import Styles from "./Mobile.module.css";
 
 import img1 from "./MobileAssets/mobile_wallpaper1.png";
@@ -19,7 +19,7 @@ const Mobile = () => {
         <div className={Styles.gallery}>
             <div className={Styles.imgGrid}>
                 {images.map((img, index) => (
-                    <ImgCard key={index} imageSrc={img} />
+                    <ImageCard key={index} imageSrc={img} />
                 ))}
             </div>
         </div>
