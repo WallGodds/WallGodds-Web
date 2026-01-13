@@ -44,7 +44,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ imageSrc, username = "@ImgUser1" 
             
             document.body.appendChild(link);
             link.click();
-            link.parentNode.removeChild(link);
+            link.parentNode?.removeChild(link);
             window.URL.revokeObjectURL(url);
 
             setToast({
@@ -104,6 +104,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ imageSrc, username = "@ImgUser1" 
                     alt="Wallpaper" 
                     className={`${Style.image} ${imageLoading ? Style.hidden : ''}`} 
                     onLoad={() => setImageLoading(false)}
+                    loading="lazy"
                 />
 
                 {!imageLoading && (

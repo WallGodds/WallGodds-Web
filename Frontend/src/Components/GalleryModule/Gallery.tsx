@@ -2,13 +2,11 @@ import { useRef, useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Styles from "./Gallery.module.css";
 import NavBar from "../CommonModule/NavBarModule/NavBar";
-import Mobile from "./MobileSection/Mobile";
-import Tablet from "./TabletSection/Tablet";
-import Desktop from "./DesktopSection/Desktop";
 import SideBar from "./SideBarModule/SideBar";
+import GalleryGrid from "./GalleryGrid";
 
 const Gallery = () => {
-  const galleryContentRef = useRef(null);
+  const galleryContentRef = useRef<HTMLDivElement>(null);
   const [showBlend, setShowBlend] = useState(false);
 
   useEffect(() => {
@@ -42,9 +40,9 @@ const Gallery = () => {
             style={{ opacity: showBlend ? 1 : 0 }}
           />
           <Routes>
-            <Route path="mobile" element={<Mobile />} />
-            <Route path="tablet" element={<Tablet />} />
-            <Route path="desktop" element={<Desktop />} />
+            <Route path="mobile" element={<GalleryGrid category="mobile" />} />
+            <Route path="tablet" element={<GalleryGrid category="tablet" />} />
+            <Route path="desktop" element={<GalleryGrid category="desktop" />} />
             <Route path="" element={<Navigate to="mobile" replace />} />
           </Routes>
           <div
