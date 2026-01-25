@@ -89,6 +89,12 @@
     .logo {
         width: 13rem;
     }
+
+    .loaderContainer {
+        height: 100dvh;
+        min-height: 100dvh;
+        max-height: 100dvh;
+    }
 }
 
 @media (max-width: 425px) {
