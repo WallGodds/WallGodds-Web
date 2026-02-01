@@ -1,48 +1,55 @@
-import React from "react";
 import NavBar from "../CommonModule/NavBarModule/NavBar";
-import styles from "./Home.module.css";
-import {Footer} from "../CommonModule/FooterModule/Footer";
-import character from "/Character.svg";
+import Footer from "../CommonModule/FooterModule/Footer";
+import Styles from "./Home.module.css";
 
 const Home = () => {
-  return (
-    <>
-      <NavBar />
-      <div className={styles.heroSection}>
-        <div className={styles.mainContainer}>
-          <div className={styles.characterElement}>
-            <img
-              src={character}
-              alt="3D Illustration"
-              className={styles.characterImage}
-            />
-          </div>
-          <div className={styles.centerWrapper}>
-            <div className={styles.centerContainer}>
-              <div className={styles.textContainer}>
-                <h1 className={styles.headLine}>
-                  WE ARE THE <br /> <span className={styles.godText}>GOD</span>
-                  <br />
-                  OF
-                  <br />
-                  <span className={styles.wallpaperText}>WALLPAPERS</span>
-                </h1>
-              </div>
-              <div className={styles.buttons}>
-                <button class={styles.btn}>
-                  BECOME A <span className={styles.god}>GOD</span>
-                </button>
-                <button class={styles.btn}>
-                  EXPLORE <span className={styles.heaven}>HEAVEN</span>
-                </button>
-              </div>
+    return (
+        <>
+            <div className={Styles.navbarWrapper}>
+                <NavBar />
             </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+            <div className={Styles.container}>
+                <div className={Styles.temp}>
+                    <p className={Styles.first}>
+                        <span className={Styles.desktopText}>
+                            This section is being designed and will be available
+                            for contributors soon
+                        </span>
+                        <span className={Styles.mobileText}>
+                            This site is currently not responsive on mobile
+                            devices
+                        </span>
+                    </p>
+                    <p className={Styles.second}>
+                        <span className={Styles.desktopText}>
+                            Keep an eye on{" "}
+                            <a
+                                href="https://github.com/WallGodds/WallGodds-Web/issues"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Github
+                            </a>{" "}
+                            and{" "}
+                            <a
+                                href="https://discord.gg/kTQ5KWANp8"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Discord
+                            </a>{" "}
+                            for updates and announcements
+                        </span>
+                        <span className={Styles.mobileText}>
+                            Contributors can expect mobile responsiveness issues
+                            to be available by the second week of February
+                        </span>
+                    </p>
+                </div>
+                <div className={Styles.footerWrapper}>
+                    <Footer />
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Home;

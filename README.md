@@ -1,14 +1,12 @@
-# 🖼 WallGodds: Minimal by Design, Inspired by You
-
 <div align="center" width ="100%">
-  <img src="https://github.com/Parnab03/WallGodds/blob/main/WEBSITE%20BANNER.png" alt="WallGodds Logo" />
+  <img src="https://github.com/WallGodds/WallGodds-Web/blob/main/WG%20Web%20Banner.png" alt="WallGodds Web Banner" />
 </div>
 <br>
 <div align="center">
-  <a href="https://github.com/sayan0328/WallGodds-App" style="text-decoration: none; margin-right: 20px;">
+  <a href="https://github.com/WallGodds/WallGodds-App" style="text-decoration: none; margin-right: 20px;">
     <img src="https://img.shields.io/badge/WallGodds%20App-%23008FFF?style=for-the-badge&logo=app&logoColor=blue" alt="WallGodds App" style="border-radius: 7px;">
   </a>
-   <a href="https://github.com/Parnab03/WallGodds" style="text-decoration: none; margin-right: 20px;">
+   <a href="https://github.com/WallGodds/WallGodds-Web" style="text-decoration: none; margin-right: 20px;">
     <img src="https://img.shields.io/badge/WallGodds%20Web-%237056F5?style=for-the-badge&logo=web&logoColor=white" alt="WallGodds Web" style="border-radius: 7px;">
   </a>
 </div>
@@ -25,8 +23,11 @@
 
 | Logo | Program | Description |
 |------|---------|-------------|
+| <img src="https://apertre.resourcio.in/assets/vector.svg" alt="Apertre 3.0" width="200px"> | [**Apertre 3.0**](https://apertre.resourcio.in/) | Apertre 3.0 is a 30-day open-source contribution initiative by Resourcio Community where developers of all levels collaborate on real projects, learn from mentors, and boost their portfolios. |
+| <img src="https://devfolio-prod.s3.ap-south-1.amazonaws.com/hackathons/ee8d75f60f0a4acf85238eabdea1bad3/assets/logo/273.png" alt="WOC 5.0 Logo" width="200px"> | [**Winter of Code 5.0**](https://winter-of-code.tech/) | Winter of Code 5.0 is a 30 day open-source mentorship program by GDG On Campus IIIT Kalyani, inspired by Google Summer of Code. It brings developers of all levels together to contribute to real projects, learn from mentors, and grow in the open-source community. |
+| <img src="https://hacktoberfest.com/_next/static/media/opengraph.6e804091.png" alt="Hacktoberfest" width="200px"> | [**Hacktoberfest 2025**](https://hacktoberfest.com/) | Hacktoberfest: a month-long celebration of open-source projects, their maintainers, and the entire community of contributors. |
 | <img src="https://miro.medium.com/v2/resize:fit:2400/1*ZfYWXN0zA6TqQQ7wGNJUOg.jpeg" alt="Gssoc" width="200px"> | [**GSSoC '25**](https://gssoc.girlscript.tech/) | GirlScript Summer of Code (GSSoC) is an open-source program that helps students enhance their coding skills by contributing to real-world projects. It provides mentorship, hands-on experience, and a platform to collaborate with developers across the globe. |
-| <img src="https://s2apertre.resourcio.in/Logo_primary.svg" alt="Apertre 2.0" width="200px"> | [**Apertre 2.0**](https://s2apertre.resourcio.in/projects) | Apertre Season 2, organized by Resourcio Community, is an open-source contribution event designed to enhance your technical skills. Whether you're a beginner or a pro, everyone is welcome to join and elevate their experience, portfolio, and career to new heights! |
+| <img src="https://s2.apertre.resourcio.in/Logo_primary.svg" alt="Apertre 2.0" width="200px"> | [**Apertre 2.0**](https://s2apertre.resourcio.in/projects) | Apertre Season 2, organized by Resourcio Community, is an open-source contribution event designed to enhance your technical skills. Whether you're a beginner or a pro, everyone is welcome to join and elevate their experience, portfolio, and career to new heights! |
 | <img src="https://media.licdn.com/dms/image/v2/C560BAQEp7MUBpYE93g/company-logo_200_200/company-logo_200_200/0/1630672259441/jwoc_logo?e=2147483647&v=beta&t=wgkKrzLc-UxgSCnWShwkjn_zTXQnaa0_4cmbv4fN4PA" alt="JWOC season 6" width="200px"> | [**JWOC season 6**](https://jwoc-2025.vercel.app/projects) | JWoC offers a hands-on open-source learning experience, fostering a community of developers. Students explore selected projects during the Community Bonding Period and contribute during the coding phase. Winners are chosen based on the quality and quantity of their contributions. |
 | <img src="https://devfolio-prod.s3.ap-south-1.amazonaws.com/hackathons/ee8d75f60f0a4acf85238eabdea1bad3/assets/logo/273.png" alt="WOC 4.0 Logo" width="200px"> | [**Winter of Code 4.0**](https://winterofcode.tech/) | A 30-day open-source program by GDG On Campus IIIT Kalyani. Modeled after GSoC, it provides a platform for developers of all levels to contribute to impactful projects, enhance skills, and join a global open-source community. |
 
@@ -107,8 +108,8 @@ As the project evolves, the design file will be continuously updated. Stay tuned
 
 1. **Clone the Repository**:  
    ```bash
-   git clone https://github.com/<your-username>/WallGodds.git
-   cd WallGodds
+   git clone https://github.com/<your-username>/WallGodds-Web.git
+   cd WallGodds-Web
    cd Frontend
    ```  
 
@@ -127,7 +128,7 @@ As the project evolves, the design file will be continuously updated. Stay tuned
    - Set environment variables for database connection and other configurations.  -->
 
 4. **Test the App**:  
-   - Open your browser and navigate to `[http://localhost:5173](http://localhost:5173/)`.  
+   - Open your browser and navigate to `http://localhost:5173`.  
 
 For detailed setup, refer to the [Contributing Guide](CONTRIBUTING.md).  
 
@@ -139,7 +140,7 @@ We welcome contributions from developers, designers, and tech enthusiasts! Follo
 
 If you're a designer, explore the [DESIGN.md](DESIGN.md) for design guidelines and collaboration details.  
 
-If you're excited to contribute wallpapers to WallGodds, head over to the [WALLPAPER.md](https://github.com/Parnab03/WallGodds/blob/main/Wallpapers/WALLPAPER.md) file. It contains a step-by-step guide on how to create, name, and submit your designs. Dive in and let your creativity shine! 🖼️
+If you're excited to contribute wallpapers to WallGodds, head over to the [WALLPAPER.md](github.com/WallGodds/WallGodds-Web/blob/main/Wallpapers/WALLPAPER.md) file. It contains a step-by-step guide on how to create, name, and submit your designs. Dive in and let your creativity shine! 🖼️
 
 ---
 
@@ -167,15 +168,15 @@ This project is licensed under the [MIT License](LICENSE). You’re free to use,
 ## 🌐 Community Links  
 
 Stay connected with our growing community:  
-- **GitHub Discussions**: [Join the conversation](https://github.com/Parnab03/WallGodds/discussions)  
+- **GitHub Discussions**: [Join the conversation](https://github.com/orgs/WallGodds/discussions)  
 - **Discord Server**: [Connect with us](https://discord.gg/kTQ5KWANp8)  
-- **LinkedIn Page**: [Follow us](https://www.linkedin.com/company/wallgodds/posts/?feedView=all)
+- **LinkedIn Page**: [Follow us](https://www.linkedin.com/company/wallgodds/)
 ---
 
 ## 💡 Suggestions and Feedback  
 
 We love feedback! If you have ideas or feature requests:  
-- Create a [GitHub Issue](https://github.com/Parnab03/WallGodds/issues).  
+- Create a [GitHub Issue](https://github.com/WallGodds/WallGodds-Web/issues).  
 - Participate in our GitHub Discussions.  
 
 ---

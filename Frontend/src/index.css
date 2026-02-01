@@ -1,14 +1,19 @@
-/* Global CSS (e.g., index.css or App.module.css) */
-:root {
-    --font-family: "Comfortaa", sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
     margin: 0;
-    font-family: var(--font-family);
-    background-image: url("/BACKGROUND.svg");
+    font-family: "Poppins", sans-serif;
+    background-image: url("/Light_mode_bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    transition:
+        background-image 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }

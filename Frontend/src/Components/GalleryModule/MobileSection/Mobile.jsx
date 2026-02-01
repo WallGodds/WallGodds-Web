@@ -1,3 +1,5 @@
+// This code is here for reference
+
 import ImgCard from "./ImgCardsMobile/ImgCard";
 import Styles from "./Mobile.module.css";
 

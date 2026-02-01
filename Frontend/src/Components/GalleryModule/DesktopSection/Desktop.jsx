@@ -1,3 +1,5 @@
+// This code is here for reference
+
 import ImgCard from "./ImgCardsDesktop/ImgCard";
 import img1 from "./DesktopAssets/img_1.png";
 import img2 from "./DesktopAssets/img_2.png";
@@ -33,7 +35,7 @@ const Desktop = () => {
                 <ImgCard imageSrc={img4} />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Desktop
+export default Desktop;

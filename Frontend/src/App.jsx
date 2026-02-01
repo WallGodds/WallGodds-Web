@@ -1,52 +1,47 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import Gallery from "./Components/GalleryModule/Gallery";
-import "./App.css";
+import Loader from "./Components/LoaderModule/Loader";
 import Home from "./Components/HomeModule/Home";
+import Gallery from "./Components/GalleryModule/Gallery";
 import Upload from "./Components/UploadModule/Upload";
-import Aboutus from "./Components/AboutModule/Aboutus";
-import Error404 from "./Components/ErrorModule/Error404";
+import SignUp from "./Components/CommonModule/SignUpModule/SignUp";
 import Profile from "./Components/ProfileModule/Profile";
-import useGoogleAnalytics from "./hooks/useGoogleAnalytics";
-import { pageview } from "./utils/analytics";
-// import Footer from "./Components/AboutModule/Footer";
+import Error404 from "./Components/CommonModule/ErrorModule/Error404";
 
+// Vercel Analytics & Speed Insights [Do not remove]
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-function AppContent() {
-    const location = useLocation();
+function App() {
+    const [isLoading, setIsLoading] = useState(() => {
+        const hasLoaded = sessionStorage.getItem("wallgodds_loaded");
+        if (hasLoaded) {
+            return false;
+        }
+        return true;
+    });
 
-    // Track page views - remove DEV check for testing
-    useEffect(() => {
-        pageview(location.pathname + location.search);
-    }, [location]);
+    const handleLoadingComplete = () => {
+        sessionStorage.setItem("wallgodds_loaded", "true");
+        setIsLoading(false);
+    };
 
     return (
         <>
-            <Analytics />
-            <SpeedInsights />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/gallery/*" element={<Gallery />} />
-                <Route path="/upload" element={<Upload />} />
-                <Route path="/aboutus" element={<Aboutus />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/*" element={<Error404 />} />
-            </Routes>
+            {isLoading && <Loader onLoadingComplete={handleLoadingComplete} />}
+            <Router>
+                <Analytics />
+                <SpeedInsights />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/gallery/*" element={<Gallery />} />
+                    <Route path="/upload" element={<Upload />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/*" element={<Error404 />} />
+                </Routes>
+            </Router>
         </>
-    );
-}
-
-function App() {
-    // Initialize Google Analytics here
-    useGoogleAnalytics();
-
-    return (
-        <Router>
-            <AppContent />
-        </Router>
     );
 }
 

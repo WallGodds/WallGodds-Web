@@ -12,51 +12,17 @@
 .toggleIcon {
     width: 32px;
     height: 32px;
+    transition:
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.themeToggle:active .toggleIcon {
+    transform: rotate(180deg) scale(0.9);
 }
 
 :global(.dark-theme) .toggleIcon {
     stroke: #ffffff;
-}
-
-.dark-theme .title,
-.dark-theme h1,
-.dark-theme h2,
-.dark-theme h3,
-.dark-theme .nav-title {
-    color: #FFFFFF !important;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-body {
-    transition: background-image 0.5s ease;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
-
-.dark-theme .navbar {
-    background: rgba(11, 20, 55, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark-theme .username {
-    color: #FFFFFF;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-
-.dark-theme .download-button {
-    background: rgba(255, 255, 255, 0.1);
-    color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-}
-
-.dark-theme .download-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 425px) {

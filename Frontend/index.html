@@ -1,54 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/FAVICON.png" />
+        <link rel="icon" type="image/svg+xml" href="/WallGodds_Favicon.png" />
+        <!-- Preload Gued font -->
+        <link
+            rel="preload"
+            href="/fonts/gued.regular.otf"
+            as="font"
+            type="font/otf"
+            crossorigin="anonymous" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Comfortaa:wght@300..700&family=Holtwood+One+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
             rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
-            rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>WallGodds</title>
+        <!-- Global font + theme styles -->
+        <style>
+            @font-face {
+                font-family: "Gued";
+                src: url("/fonts/gued.regular.otf") format("opentype");
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #f8faff;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                background-repeat: no-repeat;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+            }
+
+            html {
+                height: -webkit-fill-available;
+            }
+
+            /* Prevent overscroll on mobile */
+            body {
+                overscroll-behavior: none;
+                overflow: hidden;
+            }
+
+            /* Dark theme initial state */
+            html.dark-theme-init,
+            html.dark-theme-init body {
+                background-color: #0a0c14;
+                color: white;
+            }
+
+            html.dark-theme-init body {
+                background-image: url("/Dark_mode_bg.webp");
+            }
+
+            html:not(.dark-theme-init) body {
+                background-image: url("/Light_mode_bg.webp");
+            }
+        </style>
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                var isDark = theme === "dark";
+                var bgColor = isDark ? "#0a0c14" : "#f8faff";
+                document.documentElement.style.backgroundColor = bgColor;
+                if (isDark) {
+                    document.documentElement.classList.add("dark-theme-init");
+                }
+            })();
+        </script>
     </head>
     <body>
+        <script>
+            (function () {
+                var theme = localStorage.getItem("theme");
+                var isDark = theme === "dark";
+                var bgColor = isDark ? "#0a0c14" : "#f8faff";
+                var bgImage = isDark
+                    ? "url('/Dark_mode_bg.webp')"
+                    : "url('/Light_mode_bg.webp')";
+                document.body.style.backgroundColor = bgColor;
+                document.body.style.backgroundImage = bgImage;
+                document.body.style.color = isDark ? "white" : "black";
+                if (isDark) {
+                    document.body.classList.add("dark-theme");
+                }
+            })();
+        </script>
         <div id="root"></div>
         <script type="module" src="/src/main.jsx"></script>
-
-        <!-- Google Analytics with environment variable -->
-        <script type="module">
-            const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-
-            if (measurementId) {
-                // Load GA script
-                const script = document.createElement("script");
-                script.async = true;
-                script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-                document.head.appendChild(script);
-
-                // Initialize GA
-                window.dataLayer = window.dataLayer || [];
-                function gtag() {
-                    dataLayer.push(arguments);
-                }
-                gtag("js", new Date());
-                gtag("config", measurementId, {
-                    debug_mode: true,
-                    send_page_view: true,
-                });
-
-                // Make gtag globally available
-                window.gtag = gtag;
-
-                console.log("GA: Initialized from index.html with ID");
-            } else {
-                console.log(
-                    "GA: No measurement ID found in environment variables"
-                );
-            }
-        </script>
     </body>
 </html>

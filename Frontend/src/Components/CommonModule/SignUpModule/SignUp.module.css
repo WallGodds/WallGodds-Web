@@ -1,28 +1,17 @@
 @font-face {
     font-family: "Gued";
-    src:
-        url("/fonts/gued.regular.woff2") format("woff2"),
-        url("/fonts/gued.regular.woff") format("woff"),
-        url("/fonts/gued.regular.otf") format("opentype");
+    src: url("/fonts/gued.regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-.navbarWrapper {
-    display: block;
-}
-
-.footerWrapper {
-    display: block;
-}
-
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100vh;
-    padding-top: 10rem;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
@@ -55,7 +44,7 @@
         backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.temp .first .desktopText {
+.temp .first {
     color: #7b7c86;
     text-align: center;
     font-family: "Gued", sans-serif;
@@ -66,7 +55,7 @@
     transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.temp .second .desktopText {
+.temp .second {
     color: #7b7c86;
     text-align: center;
     font-family: "Gued", sans-serif;
@@ -106,101 +95,4 @@
 
 :global(.dark-theme) .temp a {
     color: #3c56b1;
-}
-
-/* Desktop/Mobile text visibility */
-.desktopText {
-    display: inline;
-}
-
-.mobileText {
-    display: none;
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-    .navbarWrapper {
-        display: none;
-    }
-
-    .footerWrapper {
-        display: none;
-    }
-
-    .container {
-        height: 100dvh;
-        min-height: 100dvh;
-        max-height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        padding-top: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .temp {
-        width: 100%;
-        max-width: 20rem;
-        height: auto;
-        min-height: 28rem;
-        padding: 2rem 1.5rem;
-    }
-
-    .temp .first {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Gued", sans-serif;
-        font-size: 1.1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-    }
-
-    .temp .second {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Gued", sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .temp .first .mobileText,
-    .temp .second .mobileText {
-        color: #7b7c86;
-        text-align: center;
-        font-family: "Gued", sans-serif;
-    }
-
-    .desktopText {
-        display: none;
-    }
-
-    .mobileText {
-        display: inline;
-    }
-}
-
-@media (max-width: 425px) {
-    .container {
-        padding-top: 0;
-    }
-
-    .temp {
-        max-width: 18rem;
-        min-height: 26rem;
-        padding: 1.5rem 1.25rem;
-    }
-
-    .temp .first {
-        font-family: "Gued", sans-serif;
-        font-size: 1rem;
-    }
-
-    .temp .second {
-        font-family: "Gued", sans-serif;
-        font-size: 0.9rem;
-    }
 }

@@ -1,192 +1,65 @@
-// import React from "react";
-// import { NavLink } from "react-router-dom";
-// import Search from "/SearchIcon.svg";
-// import Profile from "/ProfileIcon.svg";
-// import Style from "./NavBar.module.css";
-// import ThemeToggle from "../../ThemeModule/ThemeToggle";
-// import Logo from "./Logo";
-// import { useLocation } from "react-router-dom";
-
-// const NavBar = () => {
-//     const location = useLocation();
-//     const isAboutUsPage = location.pathname === "/aboutus";
-
-//     return (
-//         <div className={Style.navbarWrapper}>
-//            <div className={`${Style.navbarWrapper} ${isAboutUsPage ? Style.navbarStatic : ""}`}>
-
-//             {/* Logo Section */}
-//             <Logo />
-
-//             {/* Navigation Menu */}
-//             <nav className={Style.navbar}>
-//                 <div className={Style.MainContainer}>
-//                     <div className={Style.navItems}>
-//                         <ul className={Style.menu}>
-//                             <li className={Style.menuItem}>
-//                                 <NavLink
-//                                     to="/"
-//                                     className={({ isActive }) =>
-//                                         isActive
-//                                             ? `${Style.menuLink} ${Style.active} ${Style.hide}`
-//                                             : `${Style.menuLink} ${Style.hide}`
-//                                     }>
-//                                     Home
-//                                 </NavLink>
-//                             </li>
-//                             <li className={Style.menuItem}>
-//                                 <NavLink
-//                                     to="/gallery"
-//                                     className={({ isActive }) =>
-//                                         isActive
-//                                             ? `${Style.menuLink} ${Style.active}`
-//                                             : Style.menuLink
-//                                     }>
-//                                     Gallery
-//                                 </NavLink>
-//                             </li>
-//                             <li className={Style.menuItem}>
-//                                 <NavLink
-//                                     to="/upload"
-//                                     className={({ isActive }) =>
-//                                         isActive
-//                                             ? `${Style.menuLink} ${Style.active}`
-//                                             : Style.menuLink
-//                                     }>
-//                                     Upload
-//                                 </NavLink>
-//                             </li>
-//                             <li className={Style.menuItem}>
-//                                 <NavLink
-//                                     to="/aboutus"
-//                                     className={({ isActive }) =>
-//                                         isActive
-//                                             ? `${Style.menuLink} ${Style.active}`
-//                                             : Style.menuLink
-//                                     }>
-//                                     About Us
-//                                 </NavLink>
-//                             </li>
-//                         </ul>
-//                     </div>
-//                     <div className={Style.searchContainer}>
-//                         <input
-//                             className={`${Style.searchInput} ${Style.hide}`}
-//                             type="text"
-//                             placeholder="Search your wallpaper"
-//                         />
-//                         <button className={Style.searchButton}>
-//                             <img src={Search} alt="Search" />
-//                         </button>
-//                     </div>
-//                     <div className={Style.profileContainer}>
-//                         <NavLink to="/profile">
-//                             <button className={Style.profileButton}>
-//                                 <img src={Profile} alt="Profile" />
-//                             </button>
-//                         </NavLink>
-//                         <ThemeToggle />
-//                     </div>
-//                 </div>
-//             </nav>
-//         </div>
-//         </div>
-     
-//     );
-// };
-
-// export default NavBar;
-
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import Search from "/SearchIcon.svg";
-import Profile from "/ProfileIcon.svg";
+import { NavLink } from "react-router-dom";
 import Style from "./NavBar.module.css";
 import ThemeToggle from "../../ThemeModule/ThemeToggle";
-import Logo from "./Logo";
 
 const NavBar = () => {
-    const location = useLocation();
-    const isAboutUsPage = location.pathname === "/aboutus";
+    const isDark = localStorage.getItem("theme") === "dark";
+
+    const Logo = isDark
+        ? "/WallGodds_logo_for_dark_mode.svg"
+        : "/WallGodds_Logo_for_light_mode.svg";
+    const Github_arrow = isDark
+        ? "/Github_redirect_arrow_up_lite.svg"
+        : "/Github_redirect_arrow_up_dark.svg";
+    const Search = isDark ? "/Search_new_light.svg" : "/Search_new_dark.svg";
 
     return (
-        <div className={`${Style.navbarWrapper} ${isAboutUsPage ? Style.navbarStatic : ""}`}>
-            {/* Logo Section */}
-            <Logo />
-
-            {/* Navigation Menu */}
-            <nav className={Style.navbar}>
-                <div className={Style.MainContainer}>
-                    <div className={Style.navItems}>
-                        <ul className={Style.menu}>
-                            <li className={Style.menuItem}>
-                                <NavLink
-                                    to="/"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? `${Style.menuLink} ${Style.active} ${Style.hide}`
-                                            : `${Style.menuLink} ${Style.hide}`
-                                    }
-                                >
-                                    Home
-                                </NavLink>
-                            </li>
-                            <li className={Style.menuItem}>
-                                <NavLink
-                                    to="/gallery"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? `${Style.menuLink} ${Style.active}`
-                                            : Style.menuLink
-                                    }
-                                >
-                                    Gallery
-                                </NavLink>
-                            </li>
-                            <li className={Style.menuItem}>
-                                <NavLink
-                                    to="/upload"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? `${Style.menuLink} ${Style.active}`
-                                            : Style.menuLink
-                                    }
-                                >
-                                    Upload
-                                </NavLink>
-                            </li>
-                            <li className={Style.menuItem}>
-                                <NavLink
-                                    to="/aboutus"
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? `${Style.menuLink} ${Style.active}`
-                                            : Style.menuLink
-                                    }
-                                >
-                                    About Us
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className={Style.searchContainer}>
-                        <input
-                            className={`${Style.searchInput} ${Style.hide}`}
-                            type="text"
-                            placeholder="Search your wallpaper"
+        <div className={Style.navbar}>
+            <div className={Style.logo}>
+                <NavLink to="/">
+                    <img src={Logo} alt="WallGodds Logo" data-logo />
+                </NavLink>
+            </div>
+            <div className={Style.navigation}>
+                <ul className={Style.menu}>
+                    <li>
+                        <NavLink to="/gallery">Gallery</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/upload">Upload</NavLink>
+                    </li>
+                    <li>
+                        <a
+                            href="https://github.com/WallGodds"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={Style.github}>
+                            Github
+                        </a>
+                        <img
+                            className={Style.github_arrow}
+                            src={Github_arrow}
+                            alt="Github Redirect Arrow"
+                            data-github-arrow
                         />
-                        <button className={Style.searchButton}>
-                            <img src={Search} alt="Search" />
-                        </button>
-                    </div>
-                    <div className={Style.profileContainer}>
-                        <button className={Style.profileButton}>
-                            <img src={Profile} alt="Profile" />
-                        </button>
-                        <ThemeToggle />
-                    </div>
+                    </li>
+                </ul>
+            </div>
+            <div className={Style.actions}>
+                <div className={Style.search}>
+                    <button>
+                        <img src={Search} alt="Search" data-search />
+                    </button>
                 </div>
-            </nav>
+                <div className={Style.profile}>
+                    <NavLink to="/profile">
+                        <button>Join</button>
+                    </NavLink>
+                </div>
+                <div className={Style.theme}>
+                    <ThemeToggle />
+                </div>
+            </div>
         </div>
     );
 };

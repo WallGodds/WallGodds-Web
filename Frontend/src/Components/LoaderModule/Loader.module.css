@@ -1,0 +1,104 @@
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8faff;
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.4s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+.loaderContainer.dark {
+    background: #0a0c14;
+}
+
+.loaderContainer.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo {
+    width: 16rem;
+    height: auto;
+    opacity: 1;
+    animation: fadeIn 0.5s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+    transition:
+        opacity 0.4s cubic-bezier(0.33, 0, 0.2, 1),
+        transform 0.4s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+.logo.logoFade {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@-moz-document url-prefix() {
+    .logo {
+        animation: fadeInFirefox 0.5s cubic-bezier(0.33, 0, 0.2, 1) forwards;
+        transition: opacity 0.4s cubic-bezier(0.33, 0, 0.2, 1);
+        image-rendering: optimizeQuality;
+    }
+
+    .logo.logoFade {
+        opacity: 0;
+        transform: none;
+    }
+
+    @keyframes fadeInFirefox {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo {
+        animation: none;
+        opacity: 1;
+    }
+
+    .loaderContainer {
+        transition: opacity 0.2s ease;
+    }
+
+    .logo {
+        transition: opacity 0.2s ease;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 13rem;
+    }
+
+    .loaderContainer {
+        height: 100dvh;
+        min-height: 100dvh;
+        max-height: 100dvh;
+    }
+}
+
+@media (max-width: 425px) {
+    .logo {
+        width: 10rem;
+    }
+}

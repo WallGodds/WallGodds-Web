@@ -1,440 +1,207 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 10px;
-    width: 91.5%;
-    height: fit-content;
-    box-sizing: border-box;
-}
-
-  
-.navbarWrapper {
-    display: flex;
-    gap: 0.1em;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: fit-content;
-    z-index: 1;
     position: fixed;
-    top: 0.8em;
-    left: 0;
-    z-index: 1000;
-    padding-left: 14%;
-}
-
-/* New class for non-fixed (static) navbar */
-.navbarStatic {
-    position: relative;
-  }
-.MainContainer {
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    align-items: center;
-    text-align: center;
-    padding: 13px 20px;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.MainContainer::before {
-    content: "";
-    position: absolute;
-    top: 0;
+    top: 2rem;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        45deg,
-        rgba(0, 143, 255, 0.8),
-        rgba(255, 157, 0, 0.8),
-        rgba(217, 0, 0, 0.8),
-        rgba(151, 0, 136, 0.8)
-    );
-    border-radius: 10.053px;
-    z-index: -1;
-    padding: 1px;
-    margin: -1px;
-}
-
-.navItems {
+    margin: 0 auto;
+    z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 60%;
+    padding: 0 2rem;
+    width: 75.9375rem;
+    height: 7rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.23);
+    backdrop-filter: blur(33.54999923706055px);
+    transition:
+        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu {
+.logo img {
+    width: 13.71338rem;
+    height: 2.6435rem;
+    cursor: pointer;
+    transition:
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation .menu {
     list-style: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    font-size: 0.8em;
-    gap: 5em;
-}
-
-.menuItem {
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.menuLink {
-    text-decoration: none;
     color: black;
-    font-size: 1.5em;
-    font-weight: normal;
-    margin-top: 8px;
-    padding-bottom: 8px;
-    display: inline-block;
-    font-family: Comfortaa;
-    position: relative;
+    font-size: 1.46644rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    gap: 1.5rem;
+    cursor: pointer;
 }
 
-.menuLink::after {
+.navigation .menu a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation .menu a:global(.active)::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 0.3rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    /* Fixed width for the underline */
-    height: 3px;
-    /* Height of the underline */
-    background-color: transparent;
-    /* Initially transparent */
-    transition: background-color 0.3s;
+    width: 2.375rem;
+    height: 0.125rem;
+    border-radius: 2.875rem;
+    background: #000;
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menuLink.active::after {
-    border-radius: 10em;
-    background-color: black;
-    /* Underline appears when active */
+.navigation .github {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.searchContainer {
-    padding: 4px 2px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    opacity: 0.9;
-    border: 1px solid #808080;
-    background: rgba(255, 255, 255, 0);
-    border-radius: 10px;
+.github_arrow {
+    margin: 0 0 0.5rem 0.25rem;
+    transition:
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.searchInput {
-    width: 96%;
-    padding: 5px;
-    border: none;
-    background: none;
-    font-family: "Comfortaa", sans-serif;
-    font-optical-sizing: auto;
-    font-size: 1.1em;
-    font-style: normal;
-}
-
-.searchInput:focus {
-    outline: none;
-    border: none;
-}
-
-.searchButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding-right: 1.3%;
-}
-
-.profileContainer {
-    padding-left: 1%;
-    flex: 2;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-}
-
-.profileButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    img {
-        margin-top: 5px;
-    }
-}
-
-.logoContainer {
-    position: absolute; /* Fix logo at a position */
-    margin-right: 1.2em;
-    top: 2em; /* Align it with the top of the NavBar */
-    left: 0.7em; /* Add slight spacing from the left edge */
-    width: 14%;
-    height: auto;
-    z-index: 1001; /* Ensure it is above the menu */
+.actions {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
-}
-
-.logo {
-    padding: 0;
-    width: 9.1em;
-    margin-right: 12%;
+    gap: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.logo:hover {
-    transform: scale(1.15);
+.actions .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.6875rem;
+    height: 2.6875rem;
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.87);
+    backdrop-filter: blur(2px);
+    transition:
+        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* @media (max-width: 1211px) {
-    .menu {
-        font-size: 0.6em;
-        gap: 3em;
-    }
-
-    .searchContainer {
-        width: 500px;
-    }
-
-    .logo{
-        width: 85%;
-        margin-right: 0.5%;
-    }
-
-    .searchContainer{
-        width: 39%;
-    }
+.actions .search img {
+    margin-top: 0.4rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    transition:
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 992px) {
-    .searchContainer {
-        width: 400px;
-    }
-
-    .navbarWrapper {
-        padding-left: 10%;
-    }
-
-    .logoContainer {
-        left: 2em;
-    }
+.actions .search button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menuItem {
-        margin: 10px 0;
-    }
-
-    .searchContainer {
-        width: 100%;
-    }
-
-    .MainContainer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbarWrapper {
-        padding-left: 10%;
-    }
-
-    .logoContainer {
-        left: 1em;
-    }
+.actions .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 2.6875rem;
+    border-radius: 0.625rem;
+    background: rgba(112, 86, 245, 0.87);
+    backdrop-filter: blur(2px);
+    transition:
+        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 576px) {
-    .menu {
-        font-size: 1em;
-    }
-
-    .searchContainer {
-        width: 100%;
-        padding: 8px;
-    }
-
-    .searchInput {
-        padding: 8px;
-    }
-
-    .logoContainer {
-        top: 2.5em;
-        left: 1em;
-    }
-} */
-
-@media (max-width: 425px) {
-    .MainContainer {
-        padding: 0.2em 0;
-        gap: 0%;
-    }
-
-    .MainContainer::before {
-        border-radius: 4.5px;
-        margin: -1px;
-        padding: 1px;
-    }
-
-    .navbar {
-        height: fit-content;
-        width: 87%;
-        border-radius: 4.5px;
-        margin-top: 0.7%;
-    }
-
-    .navbarWrapper {
-        padding: 0;
-        padding-left: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .logo {
-        width: 60%;
-        margin-right: 0%;
-        content: url("/LogoSmall.png");
-    }
-
-    .logoContainer {
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 1%;
-    }
-
-    .logoLink {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .navItems {
-        display: flex;
-        flex-direction: row;
-        width: 60%;
-        justify-content: left;
-    }
-
-    .menu {
-        display: flex;
-        font-size: 1.6vw;
-        gap: 2em;
-        align-items: center;
-    }
-
-    .menuLink {
-        margin-top: 6px;
-        padding-bottom: 8px;
-    }
-
-    .menuLink::after {
-        bottom: 3.2px;
-        left: 50%;
-        width: 16px;
-        height: 1.25px;
-    }
-
-    .searchContainer {
-        padding: 0;
-        width: 35%;
-        height: fit-content;
-        border-radius: 4.5px;
-        justify-content: right;
-    }
-
-    .searchInput {
-        padding: 0;
-        height: fit-content;
-    }
-
-    .searchButton img {
-        width: 2.8vw;
-        padding: 1px 1px;
-    }
-
-    .searchButton {
-        padding: 0 5px;
-        height: fit-content;
-        display: flex;
-    }
-
-    .profileContainer {
-        padding-left: 0.5px;
-        gap: 0.01rem;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .profileButton {
-        justify-content: center;
-        align-content: center;
-        padding: 0;
-        padding-right: 5px;
-        padding-left: 2px;
-        padding-top: 1vw;
-    }
-
-    .profileButton img {
-        width: 3vw;
-        padding: 0;
-    }
-
-    .logoContainer {
-        margin-right: 0.2em;
-        top: 1em;
-        left: 0.3em;
-        width: 14%;
-    }
-
-    .hide {
-        display: none;
-    }
+.actions .profile button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.46644rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* dark theme */
+.actions .theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8125rem;
+    height: 2.6875rem;
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.87);
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+    transition:
+        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.actions .theme img {
+    width: 1.21794rem;
+    height: 1.21794rem;
+    transition:
+        width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 :global(.dark-theme) .navbar {
-    background-color: rgb(32, 31, 31);
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(33.54999923706055px);
 }
 
-:global(.dark-theme) .menuItem a {
-    color: rgba(255, 255, 255, 0.8);
+:global(.dark-theme) .navigation .menu a {
+    color: #fff;
 }
 
-:global(.dark-theme) .searchContainer {
-    border: 1px solid white;
+:global(.dark-theme) .navigation .menu a:global(.active)::after {
+    background-color: #fff;
 }
 
-:global(.dark-theme) .searchInput {
-    color: white;
+:global(.dark-theme) .navigation .github {
+    color: #fff;
 }
 
-:global(.dark-theme) .menuLink.active::after {
-    border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+:global(.dark-theme) .actions .search {
+    background: rgba(67, 67, 67, 0.87);
+    backdrop-filter: blur(2px);
 }
 
-:global(.dark-theme) .MainContainer::before {
-    background: linear-gradient(
-        45deg,
-        rgba(0, 86, 153, 0.8),
-        /* Darker blue */ rgba(204, 102, 0, 0.8),
-        /* Darker orange */ rgba(153, 0, 0, 0.8),
-        /* Darker red */ rgba(102, 0, 102, 0.8)
-    );
+:global(.dark-theme) .actions .profile {
+    background: rgba(82, 48, 255, 0.87);
+    backdrop-filter: blur(2px);
+}
+
+:global(.dark-theme) .actions .theme img {
+    width: 1.40625rem;
+    height: 1.40625rem;
+}
+
+:global(.dark-theme) .actions .theme {
+    background: rgba(67, 67, 67, 0.87);
+    backdrop-filter: blur(2px);
 }
