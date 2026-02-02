@@ -8,7 +8,7 @@ export const Footer = () => {
             {/* Left */}
             <div className={Styles.left}>
                 <div className={Styles.logoBox}>
-                    <div className={Styles.logoIcon} />
+                    <img src="/WallGodds_Favicon_Dark.png" alt="WallGodds Favicon" className={Styles.logoIcon} />
                 </div>
                 <span className={Styles.footerText}>A Community Initiative</span>
             </div>
