@@ -142,6 +142,43 @@ Category: Desktop
 - **Designer**: Harsh Kumar
 - **Category**: Desktop
 
+## 17. [Akshaya]_[Nature_001].jpg
+- **Title**: Emerald Hillscape
+- **Description**: Inspired by the calm rhythm of rolling green hills and moody clouds, capturing nature’s quiet balance.
+- **Designer**: Akshaya Balakrishnan
+- **Category**: Desktop
+
+## 18. [Akshaya]_[Nature_002].jpg
+- **Title**: Coral Whisper
+- **Description**: A close-up celebration of delicate petals, highlighting nature’s soft elegance after rainfall.
+- **Designer**: Akshaya Balakrishnan
+- **Category**: Desktop
+
+## 19. [Akshaya]_[Nature_01].jpg
+- **Title**: Golden Hour Reflections
+- **Description**: A serene sunset over still waters, reflecting the warmth and peace of the day’s final light.
+- **Designer**: Akshaya Balakrishnan
+- **Category**: Tablet
+
+## 20. [Akshaya]_[Nature_02].jpg
+- **Title**: Spotted Serenity
+- **Description**: Inspired by the intricate beauty of wild blooms, blending purity with subtle detail.
+- **Designer**: Akshaya Balakrishnan
+- **Category**: Tablet
+
+## 21. [Akshaya]_[Nature_1].jpg
+- **Title**: Soft Dusk Glow
+- **Description**: Captures the gentle transition between day and night, where the sky melts into golden calm.
+- **Designer**: Akshaya Balakrishnan
+- **Category**: Mobile
+
+## 22. [Akshaya]_[Nature_2].jpg
+- **Title**: Scarlet Bloom Burst
+- **Description**: A vibrant expression of life and energy, showcasing nature’s bold and joyful side.
+- **Designer**: Akshaya Balakrishnan
+- **Category**: Mobile
+
+
 
 
 WallGodds values creativity and collaboration. We can't wait to see your contributions! If you have any questions or need help, feel free to connect with our community on [Discord](https://discord.gg/kTQ5KWANp8).  
