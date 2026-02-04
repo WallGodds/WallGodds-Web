@@ -142,6 +142,41 @@ Category: Desktop
 - **Designer**: Harsh Kumar
 - **Category**: Desktop
 
+## 17. [pritha]_[agoodday].png
+- **Title**: A Good Day
+- **Description**: Just an ordinary bright day...
+- **Designer**: Pritha Pal
+- **Category**: Desktop
+
+## 18. [pritha]_[blackboard].png
+- **Title**: A Blackboard
+- **Description**: What a typical engineering lecture hall blackboard looks like!!
+- **Designer**: Pritha Pal
+- **Category**: Desktop
+
+## 19. [pritha]_[circlynight].png
+- **Title**: Circly Night
+- **Description**:Circly round clouds and the actually round moon!!
+- **Designer**: Pritha Pal
+- **Category**: Desktop
+
+## 20. [pritha]_[circlysunset].png
+- **Title**: Circly Sunset
+- **Description**: Long day it was... Looks like the clouds are also round like the sun!
+- **Designer**: Pritha Pal
+- **Category**: Desktop
+
+## 21. [pritha]_[thepanda].png
+- **Title**: The Panda
+- **Description**:You know how cute these black and whites' are right?
+- **Designer**: Pritha Pal
+- **Category**: Desktop
+
+## 22. [pritha]_[thesolarsystem].png
+- **Title**: The Solar System
+- **Description**: Just a tiny attraction in the universe? Yeah! Thats our own Solar System
+- **Designer**: Pritha Pal
+- **Category**: Desktop
 
 
 WallGodds values creativity and collaboration. We can't wait to see your contributions! If you have any questions or need help, feel free to connect with our community on [Discord](https://discord.gg/kTQ5KWANp8).  
