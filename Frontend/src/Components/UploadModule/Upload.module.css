@@ -1,28 +1,201 @@
-.dev {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 40px 0 40px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin-top: 75%;
+/* ✅ IMPORT POPPINS FONT */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.pageWrapper {
+  position: relative;
+  width: 1540px;
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Poppins', sans-serif;
 }
 
-.dev h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+.pageWrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    90deg,
+    #eef3ff 0px,
+    #e6eeff 48px,
+    #ffffff 48px,
+    #ffffff 96px
+  );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 45%,
+      rgba(0,0,0,0.6) 60%,
+      rgba(0,0,0,0) 75%
+    ),
+    radial-gradient(
+      ellipse 140% 75% at 30% -10%,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 50%,
+      rgba(0,0,0,0.7) 62%,
+      rgba(0,0,0,0.35) 72%,
+      rgba(0,0,0,0) 85%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 45%,
+      rgba(0,0,0,0.6) 60%,
+      rgba(0,0,0,0) 75%
+    ),
+    radial-gradient(
+      ellipse 170% 105% at 50% -10%,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,1) 52%,
+      rgba(0,0,0,0.7) 62%,
+      rgba(0,0,0,0.3) 68%,
+      rgba(0,0,0,0) 74%
+    );
+
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+
+  pointer-events: none;
+  z-index: 0;
 }
 
-.dev p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: #666;
-    text-align: center;
+.pageWrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Main Container */
+.mainContainer {
+  max-width: 1048px;
+  margin-top: 20px;
+  padding: 20px;
+  min-height: 555px;
+}
+
+/* Upload Card */
+.uploadZone {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px dashed #cbd5ff;
+  border-radius: 24px;
+  padding: 60px 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.uploadZone:hover {
+  border-color: #6366f1;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.uploadUI {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.uploadTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #5b6cff;
+}
+
+.uploadTitle span { color: #8fa1ff; }
+
+.orText {
+  font-size: 14px;
+  color: #5b6cff;
+  margin: 5px 0 15px;
+}
+
+.browseBtn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fileLimit {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 15px;
+}
+
+/* Aspect Ratio UI */
+.ratioGroup { display: flex; gap: 20px; margin: 30px 0; }
+.ratio { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #5b6cff; }
+
+.r1610, .r169, .r209 {
+  border: 1.5px solid #5b6cff;
+  border-radius: 3px;
+}
+
+.r1610 { width: 20px; height: 14px; }
+.r169 { width: 22px; height: 12px; }
+.r209 { width: 10px; height: 20px; }
+
+/* Rules Grid */
+.guidelinesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 50px;
+  margin-top: 20px;
+}
+
+.guideItem {
+  font-size: 13px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Your Walls */
+.wallsSection { margin-top: 20px; }
+
+.sectionHeading {
+  font-size: 21px;
+  font-weight: 400;
+  color: #5b6cff;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.emptyStateText {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.emptyStateText h4 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 5px;
+}
+
+.emptyStateText p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+.wireframePlaceholder {
+  width: 1215px;
+  height: 140px;
+  background: #d1d5db;
+  border: 1px solid #9ca3af;
+  margin-bottom: 50px;
 }
