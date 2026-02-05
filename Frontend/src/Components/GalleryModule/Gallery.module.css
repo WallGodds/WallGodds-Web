@@ -253,3 +253,40 @@
         font-size: 0.9rem;
     }
 }
+
+.deviceSelector {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 24px 0;
+    position: relative;
+    z-index: 100;
+}
+
+.deviceBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+}
+
+.deviceBtn:hover {
+    color: #6366f1;
+}
+
+.active {
+    color: #4f46e5;
+    transform: scale(1.15);
+}
+
+.deviceBtn:not(.active) {
+    filter: blur(1px);
+    transform: scale(0.9);
+}
+
+.blurred {
+    filter: blur(2px);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
