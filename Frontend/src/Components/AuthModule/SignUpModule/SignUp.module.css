@@ -1,98 +1,92 @@
-@font-face {
-    font-family: "Gued";
-    src: url("/fonts/gued.regular.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+.wrapper {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+.card {
+  width: 420px;
+  max-width: 100%;
+  padding: 38px 36px;
+  border-radius: 20px;
+  background: rgba(22, 22, 30, 0.78);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+  text-align: center;
 }
 
-.container::-webkit-scrollbar {
-    display: none;
+.card h1 {
+  font-size: 26px;
+  margin-bottom: 6px;
 }
 
-.temp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 65.5rem;
-    height: 46.75rem;
-    min-height: 46.75rem;
-    flex-shrink: 0;
-    border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: #fff;
-    backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%233c56b1' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-    transition:
-        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        background-image 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.sub {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 26px;
 }
 
-.temp .first {
-    color: #7b7c86;
-    text-align: center;
-    font-family: "Gued", sans-serif;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
 }
 
-.temp .second {
-    color: #7b7c86;
-    text-align: center;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
 
-.temp a {
-    text-decoration: none;
-    color: #3c56b1;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.google {
+  background: #ffffff;
+  color: #111;
 }
 
-:global(.dark-theme) .temp {
-    border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: rgba(39, 39, 39, 0.44);
-    backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%23a5b9ff' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+.github {
+  background: #0f0f14;
+  color: #fff;
 }
 
-:global(.dark-theme) .temp .first {
-    color: #7b7c86;
+.microsoft {
+  background: #2b2b34;
+  color: #fff;
 }
 
-:global(.dark-theme) .temp .second {
-    color: #7b7c86;
+.divider {
+  margin: 18px 0;
+  font-size: 13px;
+  opacity: 0.6;
 }
 
-:global(.dark-theme) .temp a {
-    color: #3c56b1;
+.placeholder {
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 22px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.bottom {
+  margin-top: 18px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.bottom span {
+  color: #7aa2ff;
+  cursor: pointer;
 }
