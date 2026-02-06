@@ -142,6 +142,7 @@
     font-weight: 300;
 }
 
+
 /* --- Main Big Logo Image --- */
 .mainLogoImage {
     width: 90%; 
@@ -149,6 +150,118 @@
     height: auto;
     object-fit: contain;
 }
+
+/* .card {
+    width: 500px;
+    padding: 25px;
+    border-radius: 18px;
+    background: white;
+    backdrop-filter: blur(12px);
+    border: 2px dashed #8aa3ff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+} */
+.field {
+  position: relative;
+}
+.requiredp {
+  position: absolute;
+  left: 80px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredcp {
+  position: absolute;
+  left: 140px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredus{
+    position: absolute;
+  left: 86px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredem{
+    position: absolute;
+  left: 50px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requirednm{
+     position: absolute;
+  left: 85px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+
+
+.form {
+    width: 449px;
+    height: 424.94px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+.email,.username{
+    width: 100%;
+}
+.passwordRow{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+input {
+    width: 219px;
+    height: 47px;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 7px;
+    background: #E2E8FF;
+    border: 2px solid transparent;
+    outline: none;
+    transition: border 0.2s ease;
+}
+input,
+input:focus,
+input:active {
+  background: #E2E8FF;
+}
+
+
+
+.errorInput{
+    border: 2px solid #FF917E
+}
+
+input:not(:placeholder-shown) + .requiredp,
+input:not(:placeholder-shown) + .requiredcp,
+input:not(:placeholder-shown) + .requiredus,
+input:not(:placeholder-shown) + .requiredem,
+input:not(:placeholder-shown) + .requirednm {
+  display: none;
+}
+
+.btn{
+    background-color: #5F71FE;
+    border-radius: 10px;
+    height: 43px;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    border: 0;
+}
+
 
 /* --- Footer --- */
 .footer {

@@ -11,6 +11,7 @@ import Error404 from "./Components/CommonModule/ErrorModule/Error404";
 // Vercel Analytics & Speed Insights [Don't remove]
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+ 
 
 function App() {
     const [isLoading, setIsLoading] = useState(() => {

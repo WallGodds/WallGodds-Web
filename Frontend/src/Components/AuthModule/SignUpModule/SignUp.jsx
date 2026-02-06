@@ -1,8 +1,24 @@
 import Styles from "./SignUp.module.css";
 // PNG imports are removed because we are now using SVGs for perfect quality
 import MainLogo from "./genericpic.png"; 
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
+
+ const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const passwordValue = watch("password");
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+    
     return (
         <div className={Styles.container}>
             {/* Header Section */}
@@ -50,12 +66,99 @@ const SignUp = () => {
                 <div className={Styles.dividerContainer}>
                     <span className={Styles.dividerText}>or</span>
                 </div>
+                    <form className={Styles.form} onSubmit={handleSubmit(onSubmit)}>
 
-                {/* The Big WallGodds Logo */}
-                <img src={MainLogo} alt="WallGodds" className={Styles.mainLogoImage} />
+                        <div className={Styles.row}>
+                            <div className={Styles.field}>
+                                <input
+                                    type="text"
+                                    placeholder="First Name"
+                                    className={`${Styles.input} ${errors.firstName ? Styles.errorInput : ""}`}
+                                    {...register("firstName", { required: "First Name is required" })}
+                                />
+                                <span className={Styles.requirednm}>*</span>
+                            </div>
 
+                            <div className={Styles.field}>
+                                <input
+                                    type="text"
+                                    placeholder="Last Name"
+                                    className={`${Styles.input} ${errors.lastName ? Styles.errorInput : ""}`}
+                                    {...register("lastName", { required: "Last Name is required" })}
+                                />
+                                <span className={Styles.requirednm}>*</span>
+                            </div>
+                        </div>
+
+                        <div className={Styles.field}>
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                className={`${Styles.email} ${errors.email ? Styles.errorInput : ""}`}
+                                {...register("email", {
+                                    required: "Email is required",
+                                    pattern: {
+                                        value: /^\S+@\S+$/i,
+                                        message: "Invalid email address",
+                                    },
+                                })}
+                            />
+                            <span className={Styles.requiredem}>*</span>
+                        </div>
+
+                        <div className={Styles.field}>
+                            <input
+                                type="text"
+                                placeholder="User name"
+                                className={`${Styles.username} ${errors.userName ? Styles.errorInput : ""}`}
+                                {...register("userName", { required: "Username is required" })}
+                            />
+                            <span className={Styles.requiredus}>*</span>
+                        </div>
+
+                        <div className={Styles.passwordRow}>
+                            <div className={Styles.field}>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    className={`${Styles.input} ${errors.password ? Styles.errorInput : ""}`}
+                                    {...register("password", {
+                                        required: "Password required",
+                                        minLength: {
+                                            value: 6,
+                                            message: "Password must be at least 6 characters",
+                                        },
+                                    })}
+                                />
+                                <span className={Styles.requiredp}>*</span>
+                            </div>
+
+                            <div className={Styles.field}>
+                                <input
+                                    type="password"
+                                    placeholder="Confirm password"
+                                    className={`${Styles.input} ${errors.confirmPassword ? Styles.errorInput : ""}`}
+                                    {...register("confirmPassword", {
+                                        required: "Confirmed password is required",
+                                        validate: (value) =>
+                                            value === passwordValue || "Passwords do not match",
+                                    })}
+                                />
+                                <span className={Styles.requiredcp}>*</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" className={Styles.btn}>
+                            Sign Up
+                        </button>
+
+                    </form>
+
+                {/* The Big WallGodds Logo
+                <img src={MainLogo} alt="WallGodds" className={Styles.mainLogoImage} /> */}
+              
             </div>
-
+           
             {/* Footer */}
             <p className={Styles.footer}>
                 Already have an Account? <a href="/signin">Sign in here</a>
