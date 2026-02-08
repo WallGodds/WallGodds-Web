@@ -213,41 +213,7 @@ Category: Desktop
 - **Designer**: Pritha Pal
 - **Category**: Desktop
 
-## 29. [sahithya]_[sunrise].png
-- **Title**: Embracing Dawn
-- **Description**: A calm sunrise silhouette capturing hope and fresh beginnings.
-- **Designer**: Sahithya
-- **Category**: Desktop
 
-## 30. [sahithya]_[temple].png
-- **Title**: Timeless Heritage
-- **Description**: Traditional temple architecture highlighting culture and symmetry.
-- **Designer**: Sahithya
-- **Category**: Desktop
-
-## 31. [sahithya]_[sky].png
-- **Title**: Whispering Skies
-- **Description**: Soft clouds and sunlight creating a peaceful sky view.
-- **Designer**: Sahithya
-- **Category**: Desktop
-
-## 32. [sahithya]_[cafe].png
-- **Title**: Cozy Festive Corner
-- **Description**: A monochrome café scene reflecting warmth and calm aesthetics.
-- **Designer**: Sahithya
-- **Category**: Mobile
-
-## 33. [sahithya]_[viewpoint].png
-- **Title**: Riverside Pause
-- **Description**: A serene riverside view capturing nature’s stillness.
-- **Designer**: Sahithya
-- **Category**: Mobile
-
-## 34. [sahithya]_[dreamcollage].jpeg
-- **Title**: Dream Collage
-- **Description**: A surreal blend of fantasy, sky elements, and introspective quotes reflecting imagination and self-expression.
-- **Designer**: Sahithya
-- **Category**: Mobile
 
 
 WallGodds values creativity and collaboration. We can't wait to see your contributions! If you have any questions or need help, feel free to connect with our community on [Discord](https://discord.gg/kTQ5KWANp8).  

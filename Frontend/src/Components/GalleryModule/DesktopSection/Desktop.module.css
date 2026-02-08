@@ -1,30 +1,9 @@
-body {
-    margin: 0;
-    padding: 0;
-}
+.grid {
+  width: 100%;
+  max-width: 1048px; /* figma container width */
+  margin: 0 auto;
 
-.gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 5.5%;
-    margin-top: 1000;
-    overflow: visible;
-    min-height: 100vh;
-}
-
-.imgCards {
-    display: flex;
-    justify-content: space-around;
-    width: 99.5%;
-    margin-bottom: 3%;
-    gap: 3%;
-}
-
-@media (max-width: 425px)
-{
-    .imgCards{
-        gap: 10px;
-        flex-wrap: wrap;
-    }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px; /* figma gap */
 }

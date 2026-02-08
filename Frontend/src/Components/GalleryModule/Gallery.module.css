@@ -1,107 +1,108 @@
 @font-face {
-    font-family: "Gued";
-    src:
-        url("/fonts/gued.regular.woff2") format("woff2"),
-        url("/fonts/gued.regular.woff") format("woff"),
-        url("/fonts/gued.regular.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Gued";
+  src:
+    url("/fonts/gued.regular.woff2") format("woff2"),
+    url("/fonts/gued.regular.woff") format("woff"),
+    url("/fonts/gued.regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 .navbarWrapper {
-    display: block;
+  display: block;
 }
 
 .footerWrapper {
-    display: block;
+  display: block;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    padding-top: 10rem;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 10rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .temp {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    width: 65.5rem;
-    height: 46.75rem;
-    min-height: 46.75rem;
-    flex-shrink: 0;
-    /* border-radius: 0.92675rem; */
-    /* opacity: 0.54; */
-    /* background: #fff; */
-    /* backdrop-filter: blur(11.949999809265137px); */
-    /* background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%233c56b1' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e"); */
-    /* transition:
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 65.5rem;
+  height: auto;
+  min-height: auto;
+  flex-shrink: 0;
+  margin-bottom: 24px;
+  /* border-radius: 0.92675rem; */
+  /* opacity: 0.54; */
+  /* background: #fff; */
+  /* backdrop-filter: blur(11.949999809265137px); */
+  /* background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%233c56b1' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e"); */
+  /* transition:
         background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         background-image 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
-.scrollItems{
-    display: flex;
-    width: 100%;
-    height: 35px;
-    gap: 1.1rem;
-    margin-top: 10px;
-    overflow-x: auto;
-    cursor: grab;
-    user-select: none;
-    scrollbar-width: none;
+.scrollItems {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  gap: 1.1rem;
+  margin-top: 10px;
+  overflow-x: auto;
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: none;
 }
 
-.scrollItems::-webkit-scrollbar{
-    display: none;
+.scrollItems::-webkit-scrollbar {
+  display: none;
 }
-.grabbing{
-    cursor: grabbing;
-}
-
-.categoryCard{
-    min-width: 120px;
-    min-height: auto;
-    border-radius: 15px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    cursor: inherit;
+.grabbing {
+  cursor: grabbing;
 }
 
-.categoryCard::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0, 0.45);
-    border-radius: 15px;
+.categoryCard {
+  min-width: 120px;
+  min-height: auto;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: inherit;
 }
 
-.categoryTitle{
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 400;
+.categoryCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 15px;
+}
+
+.categoryTitle {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 /* .temp .first .desktopText {
@@ -127,34 +128,34 @@
 } */
 
 .temp a {
-    text-decoration: none;
-    color: #3c56b1;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: #3c56b1;
+  font-family: "Gued", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :global(.dark-theme) .temp {
-    border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: rgba(39, 39, 39, 0.44);
-    backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%23a5b9ff' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+  border-radius: 0.92675rem;
+  opacity: 0.54;
+  background: rgba(39, 39, 39, 0.44);
+  backdrop-filter: blur(11.949999809265137px);
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%23a5b9ff' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
 }
 
 :global(.dark-theme) .temp .first {
-    color: #7b7c86;
+  color: #7b7c86;
 }
 
 :global(.dark-theme) .temp .second {
-    color: #7b7c86;
+  color: #7b7c86;
 }
 
 :global(.dark-theme) .temp a {
-    color: #3c56b1;
+  color: #3c56b1;
 }
 
 /* Desktop/Mobile text visibility */
@@ -168,125 +169,130 @@
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
-    .navbarWrapper {
-        display: none;
-    }
+  .navbarWrapper {
+    display: none;
+  }
 
-    .footerWrapper {
-        display: none;
-    }
+  .footerWrapper {
+    display: none;
+  }
 
-    .container {
-        height: 100dvh;
-        min-height: 100dvh;
-        max-height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        padding-top: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+  .container {
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-    .temp {
-        width: 100%;
-        max-width: 20rem;
-        height: auto;
-        min-height: 28rem;
-        padding: 2rem 1.5rem;
-    }
+  .temp {
+    width: 100%;
+    max-width: 20rem;
+    height: auto;
+    min-height: 28rem;
+    padding: 2rem 1.5rem;
+  }
 
-    .temp .first {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Gued", sans-serif;
-        font-size: 1.1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-    }
+  .temp .first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Gued", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
 
-    .temp .second {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Gued", sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
+  .temp .second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Gued", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
-    .temp .first .mobileText,
-    .temp .second .mobileText {
-        color: #7b7c86;
-        text-align: center;
-        font-family: "Gued", sans-serif;
-    }
+  .temp .first .mobileText,
+  .temp .second .mobileText {
+    color: #7b7c86;
+    text-align: center;
+    font-family: "Gued", sans-serif;
+  }
 
-    .desktopText {
-        display: none;
-    }
+  .desktopText {
+    display: none;
+  }
 
-    .mobileText {
-        display: inline;
-    }
+  .mobileText {
+    display: inline;
+  }
 }
 
 @media (max-width: 425px) {
-    .container {
-        padding-top: 0;
-    }
+  .container {
+    padding-top: 0;
+  }
 
-    .temp {
-        max-width: 18rem;
-        min-height: 26rem;
-        padding: 1.5rem 1.25rem;
-    }
+  .temp {
+    max-width: 18rem;
+    min-height: 26rem;
+    padding: 1.5rem 1.25rem;
+  }
 
-    .temp .first {
-        font-family: "Gued", sans-serif;
-        font-size: 1rem;
-    }
+  .temp .first {
+    font-family: "Gued", sans-serif;
+    font-size: 1rem;
+  }
 
-    .temp .second {
-        font-family: "Gued", sans-serif;
-        font-size: 0.9rem;
-    }
+  .temp .second {
+    font-family: "Gued", sans-serif;
+    font-size: 0.9rem;
+  }
 }
 
 .deviceSelector {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin: 24px 0;
-    position: relative;
-    z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0;
+  position: relative;
+  z-index: 100;
 }
 
 .deviceBtn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #000000;
-    transition: transform 0.3s ease, filter 0.3s ease, color 0.3s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #000000;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    color 0.3s ease;
 }
 
 .deviceBtn:hover {
-    color: #6366f1;
+  color: #6366f1;
 }
 
 .active {
-    color: #4f46e5;
-    transform: scale(1.15);
+  color: #4f46e5;
+  transform: scale(1.15);
 }
 
 .deviceBtn:not(.active) {
-    filter: blur(1px);
-    transform: scale(0.9);
+  filter: blur(1px);
+  transform: scale(0.9);
 }
 
 .blurred {
-    filter: blur(2px);
-    opacity: 0.6;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+  filter: blur(2px);
+  opacity: 0.6;
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
 }

@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 import Style from "./NavBar.module.css";
 import ThemeToggle from "../../ThemeModule/ThemeToggle";
+import { useState, useRef, useEffect } from "react";
 
 const NavBar = () => {
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchText, setSearchText] = useState('');
+    const searchRef = useRef(null);
+
     const isDark = localStorage.getItem("theme") === "dark";
 
     const Logo = isDark
@@ -12,6 +17,12 @@ const NavBar = () => {
         ? "/Github_redirect_arrow_up_lite.svg"
         : "/Github_redirect_arrow_up_dark.svg";
     const Search = isDark ? "/Search_new_light.svg" : "/Search_new_dark.svg";
+
+    useEffect(() => {
+        if(searchOpen){
+            searchRef.current?.focus();
+        }
+    },[searchOpen]);
 
     return (
         <div className={Style.navbar}>
@@ -46,8 +57,18 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className={Style.actions}>
-                <div className={Style.search}>
-                    <button>
+                <div className={`${Style.search} ${searchOpen ? Style.open : ""}`}>
+                    <input
+                        ref={searchRef}
+                        type="text"
+                        placeholder="Search"
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
+                        className={Style.searchInput}
+                    />
+                    <button
+                        onClick={() => setSearchOpen(!searchOpen)}
+                    >
                         <img src={Search} alt="Search" data-search />
                     </button>
                 </div>

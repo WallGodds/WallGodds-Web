@@ -5,6 +5,8 @@ import Home from "./Components/HomeModule/Home";
 import Gallery from "./Components/GalleryModule/Gallery";
 import Upload from "./Components/UploadModule/Upload";
 import SignUp from "./Components/AuthModule/SignUpModule/SignUp";
+import SignIn from "./Components/AuthModule/SignInModule/SignIn";
+import ForgetPassword from "./Components/AuthModule/ForgetPassModule/ForgetPassword";
 import Profile from "./Components/ProfileModule/Profile";
 import Error404 from "./Components/CommonModule/ErrorModule/Error404";
 
@@ -38,6 +40,8 @@ function App() {
 
                     <Route path="/upload" element={<Upload />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route path="/signin" element={<SignIn />} />
+                    <Route path="/forgetpassword" element={<ForgetPassword />} />
 
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/*" element={<Error404 />} />

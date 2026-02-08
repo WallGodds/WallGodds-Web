@@ -1,3 +1,7 @@
+/* Import Poppins from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Setup Gued Font */
 @font-face {
     font-family: "Gued";
     src: url("/fonts/gued.regular.otf") format("opentype");
@@ -9,90 +13,307 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+   
+    justify-content: center;
+    /* Full viewport height with scrolling enabled */
     height: 100vh;
-    box-sizing: border-box;
     overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    
+    /* Padding to ensure content doesn't touch edges on small screens */
+    padding: 2rem 0;
+    
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container::-webkit-scrollbar {
-    display: none;
+/* Pseudo-elements for correct vertical centering + scrolling behavior */
+.container::before {
+    content: '';
+    flex: 1;
+    min-height: 0;
+}
+.container::after {
+    content: '';
+    flex: 1;
+    min-height: 0;
 }
 
-.temp {
+/* --- Header Text --- */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    flex-shrink: 0; 
+}
+
+.title {
+    color: #FFF;
+    font-family: "Gued", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400; 
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+/* --- The Main Card --- */
+.card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 65.5rem;
-    height: 46.75rem;
-    min-height: 46.75rem;
-    flex-shrink: 0;
-    border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: #fff;
-    backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%233c56b1' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-    transition:
-        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        background-image 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* EXACT Dimensions from Figma */
+    width: 541px;
+    height: 555px;
+    overflow: hidden;
+    border-radius: 14.83px;
+     padding: 4rem 3rem;
+    box-sizing: border-box;
+    
+    background-color: rgba(255, 255, 255, 0.54);
+    backdrop-filter: blur(12px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    /* Card Border: 1px dashed #7e93d6 with rounded dashes (6, 6) */
+    background-image: url("data:image/svg+xml,%3csvg width='541' height='555' viewBox='0 0 541 555' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0.5' y='0.5' width='540' height='554' rx='14.83' ry='14.83' fill='none' stroke='%237e93d6' stroke-width='1' stroke-dasharray='6%2c 6' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+    
+    border: none;
+    
+    transition: all 0.3s ease;
+    flex-shrink: 0; 
 }
 
-.temp .first {
-    color: #7b7c86;
-    text-align: center;
-    font-family: "Gued", sans-serif;
-    font-size: 1.5rem;
-    font-style: normal;
+/* --- Social Buttons --- */
+.socialButtons {
+    display: flex;
+    gap: 0.5rem; 
+    width: 100%;
+    justify-content: center;
+}
+
+.socialBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    
+    /* Exact dimensions */
+    width: 142px;
+    height: 40px;
+    padding: 0;
+    
+    /* SVG Border: 3, 3 dashed stroke */
+    background-image: url("data:image/svg+xml,%3csvg width='142' height='40' viewBox='0 0 142 40' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0.5' y='0.5' width='141' height='39' rx='10' ry='10' fill='none' stroke='%23798ed5' stroke-width='1' stroke-dasharray='3%2c 3' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    
+    border: none;
+    
+    background-color: rgba(230, 240, 255, 0.15);
+    border-radius: 10px;
+    color: #555555; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
     font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    
+    /* Removing the transition and hover effect */
+    /* transition: all 0.2s ease;  <-- Removed */
 }
 
-.temp .second {
-    color: #7b7c86;
-    text-align: center;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
+/* REMOVED: .socialBtn:hover block is completely gone */
+
+/* --- Divider Container --- */
+.dividerContainer {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    margin: 0.75rem 0;
+}
+
+.dividerText {
+    color: #555555;
+    font-size: 0.75rem; 
+    font-weight: 300;
+}
+
+
+/* --- Main Big Logo Image --- */
+.mainLogoImage {
+    width: 90%; 
+    max-width: 600px; 
+    height: auto;
+    object-fit: contain;
+}
+
+/* .card {
+    width: 500px;
+    padding: 25px;
+    border-radius: 18px;
+    background: white;
+    backdrop-filter: blur(12px);
+    border: 2px dashed #8aa3ff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+} */
+.field {
+  position: relative;
+}
+.requiredp {
+  position: absolute;
+  left: 80px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredcp {
+  position: absolute;
+  left: 140px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredus{
+    position: absolute;
+  left: 86px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requiredem{
+    position: absolute;
+  left: 50px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+.requirednm{
+     position: absolute;
+  left: 85px;
+  top: 49%;
+  transform: translateY(-50%);
+  color: #ff917e;
+}
+
+
+.form {
+    width: 449px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+}
+.email,.username{
+    width: 100%;
+}
+.passwordRow{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+input {
+    width: 219px;
+    height: 47px;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 7px;
+    background: #E2E8FF;
+    border: 2px solid transparent;
+    outline: none;
+    transition: border 0.2s ease;
+}
+input,
+input:focus,
+input:active {
+  background: #E2E8FF;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #E2E8FF inset !important;
+  box-shadow: 0 0 0 1000px #E2E8FF inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.errorInput{
+    border: 2px solid #FF917E
+}
+
+input:not(:placeholder-shown) + .requiredp,
+input:not(:placeholder-shown) + .requiredcp,
+input:not(:placeholder-shown) + .requiredus,
+input:not(:placeholder-shown) + .requiredem,
+input:not(:placeholder-shown) + .requirednm {
+  display: none;
+}
+.error{
+     position: absolute;
+  top: -36px;            /* moves it above input */
+  left: 0;
+  background-color: #ff917e;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.btn{
+    background-color: #5F71FE;
+    border-radius: 10px;
+    height: 43px;
+    color: white;
     font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 20px;
+    border: 0;
 }
 
-.temp a {
+
+/* --- Footer --- */
+.footer {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 300;
+    flex-shrink: 0; 
+}
+
+.footer a {
+    color: #5D7BF5;
     text-decoration: none;
-    color: #3c56b1;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 500;
+    margin-left: 0.3rem;
 }
 
-:global(.dark-theme) .temp {
-    border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: rgba(39, 39, 39, 0.44);
-    backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%23a5b9ff' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+.footer a:hover {
+    text-decoration: underline;
 }
 
-:global(.dark-theme) .temp .first {
-    color: #7b7c86;
+/* Dark Theme Support */
+:global(.dark-theme) .card {
+    background: rgba(0, 0, 0, 0.54); 
+    filter: invert(0.1); 
 }
-
-:global(.dark-theme) .temp .second {
-    color: #7b7c86;
+:global(.dark-theme) .socialBtn {
+    color: #ccc;
 }
-
-:global(.dark-theme) .temp a {
-    color: #3c56b1;
+:global(.dark-theme) .dividerText {
+    color: #ccc;
 }

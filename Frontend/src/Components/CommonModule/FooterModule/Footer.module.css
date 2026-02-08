@@ -1,48 +1,55 @@
 .footer {
-    display: flex;
-    width: 75.9375rem;
-    height: 6.9375rem;
-    padding: 0 2rem;
-    margin: 1.5rem 0;
-    align-items: center;
-    border-radius: 1rem;
-    flex-shrink: 0;
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23c9d7ff' stroke-width='3' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-    transition:
-        background-image 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  width: 75.9375rem;
+  height: 6.9375rem;
+  padding: 0 2rem;
+  margin: 1.5rem 0;
+  align-items: center;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23c9d7ff' stroke-width='3' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+  transition:
+    background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :global(.dark-theme) .footer {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23A5B9FF8A' stroke-width='3' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%23A5B9FF8A' stroke-width='3' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
 }
 
 .left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(.dark-theme) .left {
+  filter: invert(1);
 }
 
 .footerTitle {
-    width: 19.5rem;
+  width: 19.5rem;
 }
 
 .socials {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .iconBtn {
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    background: #303030;
-    border: 1px solid #303030;
-    transition: all 0.2s ease;
-    font-size: 1.7rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: #303030;
+  border: 1px solid #303030;
+  transition: all 0.2s ease;
+  font-size: 1.7rem;
 }
