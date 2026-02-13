@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+
 import MobileIcon from "./GallaryAssets/mobile.svg";
 import TabletIcon from "./GallaryAssets/tablet.svg";
 import LaptopIcon from "./GallaryAssets/laptop.svg";
@@ -16,15 +17,15 @@ import Travel from "./categorieItems/Travel.svg";
 import Spiritual from "./categorieItems/Spiritual.svg";
 import Music from "./categorieItems/Music.svg";
 import AIGen from "./categorieItems/AIGen.svg";
-import Desktop from "./DesktopSection/Desktop";
 
 import Mobile from "./MobileSection/Mobile";
-
 import Tablet from "./TabletSection/Tablet";
+import Desktop from "./DesktopSection/Desktop";
 
-import Styles from "./Gallery.module.css";
 import NavBar from "../CommonModule/NavBarModule/NavBar";
 import Footer from "../CommonModule/FooterModule/Footer";
+
+import Styles from "./Gallery.module.css";
 
 const devices = [
   { id: "tablet", icon: TabletIcon, route: "/gallery/tablet" },
@@ -116,6 +117,7 @@ const Gallery = () => {
         </div>
 
         <div className={Styles.temp}>
+          {/* Categories */}
           <div
             ref={sliderRef}
             className={Styles.scrollItems}
@@ -136,16 +138,18 @@ const Gallery = () => {
           </div>
         </div>
 
-        {activeDevice === "desktop" && <Desktop />}
-        {activeDevice === "mobile" && <Mobile />}
-        <Routes>
-          <Route path="desktop" element={<Desktop />} />
-          <Route path="tablet" element={<Tablet />} />
-        </Routes>
+        <div className={Styles.galleryScrollArea}>
+          {activeDevice === "mobile" && <Mobile />}
+          
+          <Routes>
+            <Route path="desktop" element={<Desktop />} />
+            <Route path="tablet" element={<Tablet />} />
+          </Routes>
 
-        <div className={Styles.footerWrapper}>
-          <Footer />
-        </div>
+          <div className={Styles.footerWrapper}>
+            <Footer />
+          </div>
+        </div> 
       </div>
     </>
   );

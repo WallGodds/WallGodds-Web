@@ -26,8 +26,7 @@
   padding-top: 10rem;
   box-sizing: border-box;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -44,6 +43,26 @@
   width: 65.5rem;
   height: auto;
   margin-bottom: 24px;
+}
+
+.galleryScrollArea {
+  flex: 1 1 auto;
+  min-height: 0px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.galleryScrollArea::-webkit-scrollbar {
+  display: none;
 }
 
 .scrollItems {
