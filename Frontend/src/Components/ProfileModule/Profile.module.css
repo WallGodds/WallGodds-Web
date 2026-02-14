@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     padding-top: 10rem;
     box-sizing: border-box;
     overflow-y: auto;
@@ -34,87 +34,467 @@
     display: none;
 }
 
-.temp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Profile Card */
+.profileCard {
+    position: relative;
+    margin-top: 6rem;
     width: 65.5rem;
-    height: 46.75rem;
     min-height: 46.75rem;
-    flex-shrink: 0;
     border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: #fff;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.88) 100%
+    );
     backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%233c56b1' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+    margin-bottom: 2rem;
     transition:
         background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        background-image 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
         backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.temp .first .desktopText {
-    color: #7b7c86;
-    text-align: center;
-    font-family: "Gued", sans-serif;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.temp .second .desktopText {
-    color: #7b7c86;
-    text-align: center;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.temp a {
-    text-decoration: none;
-    color: #3c56b1;
-    font-family: "Gued", sans-serif;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-:global(.dark-theme) .temp {
+/* Profile Header */
+.profileHeader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 11.5rem;
+    padding: 2rem 2rem 2rem 16.5rem;
     border-radius: 0.92675rem;
-    opacity: 0.54;
-    background: rgba(39, 39, 39, 0.44);
-    backdrop-filter: blur(11.949999809265137px);
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%23a5b9ff' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+    background: rgba(255, 255, 255, 0.42);
+    margin-bottom: 2rem;
 }
 
-:global(.dark-theme) .temp .first {
-    color: #7b7c86;
+/* Profile Photo Section */
+.profilePhotoSection {
+    position: absolute;
+    top: -3.5rem;
+    left: 2rem;
+    z-index: 2;
+    border: 0.85rem solid #547EFF42;
+    border-radius: 1.775rem;
+    flex-shrink: 0;
 }
 
-:global(.dark-theme) .temp .second {
-    color: #7b7c86;
+.profilePhoto {
+    width: 9.375rem;
+    height: 9.375rem;
+    border-radius: 0.9375rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.87);
+    backdrop-filter: blur(2px);
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-:global(.dark-theme) .temp a {
-    color: #3c56b1;
+.profilePhoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Desktop/Mobile text visibility */
-.desktopText {
-    display: inline;
+.editPhotoBtn {
+    position: absolute;
+    padding: 5px;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem ;
+    background: #C4CAFF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition:
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mobileText {
-    display: none;
+.editPhotoBtn:hover {
+    transform: scale(1.05);
+}
+
+/* Profile Info */
+.profileInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+}
+
+/* Name Section */
+.nameSection {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.profileName {
+    font-family: "Gued", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #3C56B1;
+    margin: 0;
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nameInput {
+    height: 2.25rem;
+    width: 20rem;
+    font-family: "Gued", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #3C56B1;
+    background: transparent;
+    outline: none;
+    padding: 0.25rem 0;
+    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.editBtn {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.375rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C4CAFF;
+    transition:
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.editBtn:hover {
+    transform: scale(1.05);
+}
+
+.shareBtn {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.375rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7056F5;
+    transition:
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: auto;
+}
+
+.shareBtn:hover {
+    transform: scale(1.05);
+}
+
+/* Username Section */
+.usernameSection {
+      
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #7B7C86;
+}
+
+.usernameSection svg {
+    margin-right: 0.5rem;
+    width: 0.875rem;
+    height: 0.875rem;
+}
+.usernameTab{
+    display: flex;
+    border: 1px  rgba(112, 86, 245, 0.5);
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background: rgba(112, 86, 245, 0.1);
+    border: 1px  rgba(112, 86, 245, 0.5);
+    color: #606060;
+
+}
+
+.username {
+    font-family: "Gued", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.username:hover {
+    color: #7056F5;
+}
+
+.usernameInput {
+    height: 1.25rem;
+    width: 6rem;
+    font-family: "Gued", sans-serif;
+    font-size: 1rem;
+    color: #7B7C86;
+    background: transparent;
+    outline: none;
+    padding: 0.125rem 0;
+    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Tags Section */
+.tagsSection {
+    position: relative;
+    display: inline-block;
+}
+
+.addTagBtn {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background: #82A0FF;
+    border: 1px  rgba(112, 86, 245, 0.5);
+    color: #ffffff;
+    font-family: "Gued", sans-serif;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition:
+        background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.addTagBtn:hover {
+    background: rgba(112, 86, 245, 0.2);
+    border-color: rgba(112, 86, 245, 0.8);
+}
+
+.tagsDropdown {
+    position: absolute;
+    top: calc(100% + 0.2rem);
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 0.625rem;
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 12rem;
+    transition:
+        background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tagOption {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 1rem 1rem;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 0.375rem;
+    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.1;
+}
+
+.tagOption:hover {
+    background: rgba(112, 86, 245, 0.1);
+}
+
+.tagOption input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: #7056F5;
+    width: 0.85rem;
+    height: 0.85rem;
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+.tagOption span {
+    font-family: "Gued", sans-serif;
+    font-size: 1rem;
+    color: #000;
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tagOption input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Location Section */
+.locationSection {
+    display: flex;
+    width: 400px;
+    align-items: center;
+    gap: 0.5rem;
+    color: #7B7C86;
+}
+
+.locationSection svg {
+    width: 0.875rem;
+    height: 1rem;
+}
+
+.locationInput {
+
+    height: 2.25rem;
+    width: 20rem;
+    padding-left:1rem ;
+    font-family: "Gued", sans-serif;
+    font-size: 0.875rem;
+    color: #7B7C86;
+    background: transparent;
+  
+    border-radius: 2rem;
+    background: rgba(112, 86, 245, 0.1);
+    border: 1px  rgba(112, 86, 245, 0.5);
+    color: #7056F5;
+    outline: none;
+    flex: 1;
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.locationInput::placeholder {
+    color: #7B7C86;
+    opacity: 0.7;
+}
+
+/* Gallery Section */
+.gallerySection {
+    margin-top: 2rem;
+}
+
+.galleryPlaceholder {
+    min-height: 20rem;
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme */
+:global(.dark-theme) .profileCard {
+    background: linear-gradient(
+        180deg,
+        rgba(39, 39, 39, 0) 0%,
+        rgba(39, 39, 39, 0.88) 100%
+    );
+}
+
+:global(.dark-theme) .profileHeader {
+    background: rgba(67, 67, 67, 0.5);
+}
+
+:global(.dark-theme) .profilePhoto {
+    background: rgba(67, 67, 67, 0.87);
+}
+
+:global(.dark-theme) .editPhotoBtn {
+    background: rgba(82, 48, 255, 0.87);
+}
+
+:global(.dark-theme) .editPhotoBtn:hover {
+    background: rgba(82, 48, 255, 1);
+}
+
+:global(.dark-theme) .profileName {
+    color: #fff;
+}
+
+:global(.dark-theme) .nameInput {
+    color: #fff;
+    border-bottom-color: rgba(82, 48, 255, 0.5);
+}
+
+:global(.dark-theme) .nameInput:focus {
+    border-bottom-color: rgba(82, 48, 255, 1);
+}
+
+:global(.dark-theme) .editBtn {
+    background: rgba(67, 67, 67, 0.87);
+    color: #5230FF;
+}
+
+:global(.dark-theme) .editBtn:hover {
+    background: rgba(67, 67, 67, 1);
+}
+
+:global(.dark-theme) .shareBtn {
+    background: rgba(67, 67, 67, 0.87);
+    color: #5230FF;
+}
+
+:global(.dark-theme) .shareBtn:hover {
+    background: rgba(67, 67, 67, 1);
+}
+
+:global(.dark-theme) .usernameSection {
+    color: #B0B0B0;
+}
+
+:global(.dark-theme) .username {
+    color: #B0B0B0;
+}
+
+:global(.dark-theme) .username:hover {
+    color: #5230FF;
+}
+
+:global(.dark-theme) .usernameInput {
+    color: #B0B0B0;
+    border-bottom-color: rgba(82, 48, 255, 0.5);
+}
+
+:global(.dark-theme) .usernameInput:focus {
+    border-bottom-color: rgba(82, 48, 255, 1);
+}
+
+:global(.dark-theme) .addTagBtn {
+    background: rgba(82, 48, 255, 0.1);
+    border-color: rgba(82, 48, 255, 0.5);
+    color: #5230FF;
+}
+
+:global(.dark-theme) .addTagBtn:hover {
+    background: rgba(82, 48, 255, 0.2);
+    border-color: rgba(82, 48, 255, 0.8);
+}
+
+:global(.dark-theme) .tagsDropdown {
+    background: rgba(39, 39, 39, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark-theme) .tagOption:hover {
+    background: rgba(82, 48, 255, 0.1);
+}
+
+:global(.dark-theme) .tagOption span {
+    color: #fff;
+}
+
+:global(.dark-theme) .tagOption input[type="checkbox"] {
+    accent-color: #5230FF;
+}
+
+:global(.dark-theme) .locationSection {
+    color: #B0B0B0;
+}
+
+:global(.dark-theme) .locationInput {
+    color: #B0B0B0;
+}
+
+:global(.dark-theme) .locationInput::placeholder {
+    color: #B0B0B0;
+}
+
+:global(.dark-theme) .galleryPlaceholder {
+    background: rgba(67, 67, 67, 0.3);
 }
 
 /* Mobile Responsive Styles */
@@ -128,79 +508,92 @@
     }
 
     .container {
-        height: 100dvh;
         min-height: 100dvh;
-        max-height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        padding-top: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 1rem;
+        padding-top: 1rem;
     }
 
-    .temp {
+    .profileCard {
         width: 100%;
-        max-width: 20rem;
-        height: auto;
-        min-height: 28rem;
-        padding: 2rem 1.5rem;
+        max-width: 100%;
+        padding: 1.5rem;
+        min-height: auto;
     }
 
-    .temp .first {
-        display: flex;
-        justify-content: center;
+    .profileHeader {
+        flex-direction: column;
         align-items: center;
-        font-family: "Gued", sans-serif;
-        font-size: 1.1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-    }
-
-    .temp .second {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Gued", sans-serif;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .temp .first .mobileText,
-    .temp .second .mobileText {
-        color: #7b7c86;
         text-align: center;
-        font-family: "Gued", sans-serif;
+        gap: 1.5rem;
+        padding: 1rem;
+        min-height: auto;
+        background: transparent;
+        backdrop-filter: none;
     }
 
-    .desktopText {
-        display: none;
+    .profileInfo {
+        align-items: center;
     }
 
-    .mobileText {
-        display: inline;
+    .profilePhotoSection {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .nameSection {
+        justify-content: center;
+    }
+
+    .shareBtn {
+        margin-left: 0;
+    }
+
+    .profileName {
+        font-size: 1.5rem;
+    }
+
+    .nameInput {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .usernameSection {
+        justify-content: center;
+    }
+
+    .tagsSection {
+        width: 100%;
+    }
+
+    .addTagBtn {
+        width: 100%;
+    }
+
+    .locationSection {
+        justify-content: center;
+    }
+
+    .galleryPlaceholder {
+        min-height: 15rem;
     }
 }
 
 @media (max-width: 425px) {
-    .container {
-        padding-top: 0;
+    .profileCard {
+        padding: 1rem;
     }
 
-    .temp {
-        max-width: 18rem;
-        min-height: 26rem;
-        padding: 1.5rem 1.25rem;
+    .profilePhoto {
+        width: 7.5rem;
+        height: 7.5rem;
     }
 
-    .temp .first {
-        font-family: "Gued", sans-serif;
-        font-size: 1rem;
+    .profileName {
+        font-size: 1.25rem;
     }
 
-    .temp .second {
-        font-family: "Gued", sans-serif;
-        font-size: 0.9rem;
+    .nameInput {
+        font-size: 1.25rem;
     }
 }
