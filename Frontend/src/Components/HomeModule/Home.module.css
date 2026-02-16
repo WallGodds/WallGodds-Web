@@ -128,7 +128,7 @@
     /* .footerWrapper {
         display: none;
     } */
-
+    
     .container {
         height: 100dvh;
         min-height: 100dvh;
@@ -150,12 +150,10 @@
         min-height: 28rem;
         padding: 2rem 1.5rem;
     }
-
     .footerWrapper {
         display: block;
-        margin-top: 1rem;
+        margin-top: 1rem; 
     }
-
     .temp .first {
         display: flex;
         justify-content: center;
