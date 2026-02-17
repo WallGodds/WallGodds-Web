@@ -11,6 +11,8 @@
 
 .navbarWrapper {
     display: block;
+    position: relative;
+    z-index: 1000;
 }
 
 .footerWrapper {
@@ -120,13 +122,13 @@
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .navbarWrapper {
-        display: none;
+        display: block;
     }
 
     /* .footerWrapper {
         display: none;
     } */
-
+    
     .container {
         height: 100dvh;
         min-height: 100dvh;
@@ -138,6 +140,7 @@
         padding-top: 0;
         padding-left: 1rem;
         padding-right: 1rem;
+        margin-bottom: 12rem;
     }
 
     .temp {
@@ -147,7 +150,10 @@
         min-height: 28rem;
         padding: 2rem 1.5rem;
     }
-
+    .footerWrapper {
+        display: block;
+        margin-top: 1rem; 
+    }
     .temp .first {
         display: flex;
         justify-content: center;
