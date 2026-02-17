@@ -63,7 +63,7 @@ const ForgetPassword = () => {
                   {/* FooterCode */}
                          <p className={Styles.footer}>
                              Remember your password{" "}?{" "}
-                             <NavLink to="/signin"> Back to Sign in</NavLink>
+                             <NavLink to="/signin"><span className={Styles.signin}> Back to Sign in</span></NavLink>
                          </p>
 
                 
