@@ -29,11 +29,13 @@ const Profile = () => {
     const [name, setName] = useState("Samuel Khanna");
     const [username, setUsername] = useState("sam96");
     const [location, setLocation] = useState("");
-    const [isEditingName, setIsEditingName] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
     const [isEditingUsername, setIsEditingUsername] = useState(false);
     const [showTagsDropdown, setShowTagsDropdown] = useState(false);
     const [selectedTags, setSelectedTags] = useState([]);
     const tagsSectionRef = useRef(null);
+    const inputRef = useRef(null);
+    const usernameRef = useRef(null);
     const [imagePreview, setImagePreview] = useState(null)
     const availableTags = [
         "Developer",
@@ -45,6 +47,43 @@ const Profile = () => {
         "Photographer"
     ];
     const remainingTagSlots = 3 - selectedTags.length;
+
+    // Auto resize input to text width
+    useEffect(() => {
+        //For name
+        if (inputRef.current) {
+            inputRef.current.style.width = "0px";
+            inputRef.current.style.width =
+                inputRef.current.scrollWidth + "px";
+        }
+
+        // Add this for Username
+        if (usernameRef.current) {
+            usernameRef.current.style.width = "0px";
+            usernameRef.current.style.width = usernameRef.current.scrollWidth + "px";
+        }
+    }, [name, username]);
+
+    const handleEditClick = () => {
+        setIsEditing(true);
+
+        setTimeout(() => {
+            inputRef.current?.focus();
+        }, 0);
+    };
+
+    const handleBlur = () => {
+        setIsEditing(false);
+    };
+
+    useEffect(() => {
+        if (isEditingUsername && usernameRef.current) {
+            usernameRef.current.focus();
+            // This moves the cursor to the end of the text instead of the start
+            const length = usernameRef.current.value.length;
+            usernameRef.current.setSelectionRange(length, length);
+        }
+    }, [isEditingUsername]);
 
     const handleImageClick = () => {
         imageFile.current?.click()
@@ -125,8 +164,6 @@ const Profile = () => {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
     }, []);
-
-
 
     return (
         <>
@@ -235,21 +272,17 @@ const Profile = () => {
                             {/* <div className={`${Styles.wireframeBox} ${Styles.banner}`}> */}
                             <div className={Styles.profileInfo}>
                                 <div className={Styles.nameSection}>
-                                    {isEditingName ? (
-                                        <input
-                                            type="text"
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                            onBlur={() => setIsEditingName(false)}
-                                            className={Styles.nameInput}
-                                            autoFocus
-                                        />
-                                    ) : (
-                                        <h1 className={Styles.profileName}>{name}</h1>
-                                    )}
+                                    <input
+                                        ref={inputRef}
+                                        className={Styles.nameInput}
+                                        value={name}
+                                        readOnly={!isEditing}
+                                        onChange={(e) => setName(e.target.value)}
+                                        onBlur={handleBlur}
+                                    />
                                     <button
                                         className={Styles.editBtn}
-                                        onClick={() => setIsEditingName(!isEditingName)}
+                                        onClick={handleEditClick}
                                     >
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.4018 2.0607L13.2681 1.19446C13.9857 0.476847 15.1492 0.476847 15.8668 1.19446C16.5844 1.91208 16.5844 3.07556 15.8668 3.79318L15.0006 4.65943M12.4018 2.0607L6.57491 7.8876C6.13084 8.33175 5.81581 8.88807 5.6635 9.49734L5.03003 12.0312L7.56394 11.3977C8.1732 11.2455 8.72953 10.9304 9.17368 10.4863L15.0006 4.65943M12.4018 2.0607L15.0006 4.65943" stroke="#3C56B1" strokeWidth="1.3125" strokeLinejoin="round" />
@@ -272,23 +305,15 @@ const Profile = () => {
                                         </button>
 
                                         <span className="prefix">@</span>
-                                        {isEditingUsername ? (
-                                            <div>
-
-                                                <input
-                                                    type="text"
-                                                    value={username}
-                                                    onChange={(e) => setUsername(e.target.value)}
-                                                    onBlur={() => setIsEditingUsername(false)}
-                                                    className={Styles.usernameInput}
-                                                    autoFocus
-                                                />
-                                            </div>
-                                        ) : (
-                                            <span>
-                                                {username}
-                                            </span>
-                                        )}
+                                        <input
+                                            type="text"
+                                            ref={usernameRef}
+                                            value={username}
+                                            onChange={(e) => setUsername(e.target.value)}
+                                            readOnly={!isEditingUsername}
+                                            onBlur={() => setIsEditingUsername(false)}
+                                            className={Styles.usernameInput}
+                                        />
                                     </div>
                                     <div className={Styles.tagsSection} ref={tagsSectionRef}>
                                         {selectedTags.map((tag) => (
