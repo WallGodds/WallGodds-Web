@@ -607,9 +607,7 @@ input[type="checkbox"].checkboxError:not(:checked) {
     object-fit: cover;
 }
 
-:global(.dark-theme) .container {
-    background: linear-gradient(180deg, #1a1d2e 0%, #0f1219 100%);
-}
+/* Dark Theme Styles */
 
 :global(.dark-theme) .uploadBox {
     background: transparent;
@@ -637,12 +635,25 @@ input[type="checkbox"].checkboxError:not(:checked) {
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='15' ry='15' stroke='%23a5b9ff' stroke-width='3' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
 }
 
+:global(.dark-theme) .uploadIcon {
+    max-width: 15rem;
+    margin : auto;
+}
+
 :global(.dark-theme) .dragText {
     color: #a5b9ff;
 }
 
 :global(.dark-theme) .orText {
     color: #6b78a0;
+}
+
+:global(.dark-theme) .and{
+    color: #aab2fd;
+}
+
+:global(.dark-theme) .photoText{
+    color: #aab2fd;
 }
 
 :global(.dark-theme) .browseBtn {
@@ -654,15 +665,15 @@ input[type="checkbox"].checkboxError:not(:checked) {
 }
 
 :global(.dark-theme) .fileSizeText {
-    color: #6b78a0;
+    color: #a8a8a8;
 }
 
 :global(.dark-theme) .aspectItem {
-    color: #6b78a0;
+    color: #6b78a0c4;
 }
 
 :global(.dark-theme) .aspectIcon {
-    filter: brightness(0) saturate(100%) invert(60%) sepia(20%) saturate(800%) hue-rotate(195deg) brightness(110%) contrast(90%);
+    opacity: 0.5;
 }
 
 :global(.dark-theme) .ratioIcon {
@@ -670,27 +681,20 @@ input[type="checkbox"].checkboxError:not(:checked) {
 }
 
 :global(.dark-theme) .guidelineItem {
-    color: #9ba8c9;
+    color: #a8a8a8;
 }
 
-:global(.dark-theme) .guidelineIcon rect {
-    fill: rgba(255, 255, 255, 0.08);
-}
-
-:global(.dark-theme) .guidelineIcon path {
-    stroke: #6b78a0;
-}
 
 :global(.dark-theme) .yourWallsTitle {
     color: #a5b9ff;
 }
 
 :global(.dark-theme) .placeholderTitle {
-    color: #c8cfe8;
+    color: #808080;
 }
 
 :global(.dark-theme) .placeholderSubtitle {
-    color: #6b78a0;
+    color: #5a5b5e;
 }
 
 .desktopText {

@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Styles from "./Upload.module.css";
 import NavBar from "../CommonModule/NavBarModule/NavBar";
@@ -8,6 +8,8 @@ import LaptopIcon from "../GalleryModule/GallaryAssets/laptop-light.svg";
 import TabletIcon from "../GalleryModule/GallaryAssets/tablet-light.svg";
 import MobileIcon from "../GalleryModule/GallaryAssets/mobile-light.svg";
 import UploadIconImg from "../GalleryModule/GallaryAssets/upload-icon.png";
+import UploadIconImgDark from "../GalleryModule/GallaryAssets/upload-icon-dark.svg";
+
 
 
 const Upload = () => {
@@ -19,6 +21,18 @@ const Upload = () => {
   const [count,setCount]=useState(5)
   const [previewFile, setPreviewFile] = useState(null)
   const fileInputRef = useRef(null);
+
+  const [isDark, setIsDark] = useState(
+  document.body.classList.contains("dark-theme")
+);
+
+useEffect(() => {
+  const observer = new MutationObserver(() => {
+    setIsDark(document.body.classList.contains("dark-theme"));
+  });
+  observer.observe(document.body, { attributes: true });
+  return () => observer.disconnect();
+}, []);
 
   const categories = ["Abstract", "Nature", "Anime", "Art", "Movies", "Vehicles", "Sports", "Gaming", "Travels"
     , "Spiritual", "Music", "AI Gen"];
@@ -308,7 +322,7 @@ const Upload = () => {
                             <div className={Styles.uploadContent}>
                                 <div className={Styles.uploadIconWrapper}>
                                     <img
-                                        src={UploadIconImg}
+                                        src={isDark ? UploadIconImgDark : UploadIconImg}
                                         alt="Upload icon"
                                         className={Styles.uploadIcon}
                                     />
