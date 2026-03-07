@@ -195,9 +195,27 @@
   opacity: 0.6;
 }
 
+/* ================= TABLET ONLY ================= */
+@media (min-width: 701px) and (max-width: 1195px) {
+  .container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 7rem;
+  }
+
+  .temp {
+    width: 650px;
+    margin-bottom: 1.6rem;
+    align-items: flex-start;
+    padding: 0 2px;
+    box-sizing: border-box;
+  }
+}
+
 /* ================= MOBILE ONLY ================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .container {
     height: 100dvh;
     overflow: hidden;

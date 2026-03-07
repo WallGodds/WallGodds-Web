@@ -268,7 +268,7 @@
         height: 12.438px;
         position: absolute;
         top: 1px;
-        right: 3.5px;
+        right: 3px;
         flex-shrink: 0;
         transition:
             opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -280,13 +280,12 @@
         flex: 0 0 auto;
         min-width: auto;
         margin-right: 0;
+        padding-top: 0.41rem;
     }
 
     .logo img {
         width: 7.69rem;
         height: 1.48rem;
-        margin: 0;
-        padding: 0;
     }
 
     .navigation,
@@ -303,23 +302,24 @@
         width: 1.33rem;
         bottom: 0.18rem;
     }
-
-    .actions .profile {
-        width: auto;
-        height: 1.5rem;
-        padding: 0 0.69rem;
-        border-radius: 0.35rem;
-    }
-
-    .actions .profile button {
-        font-size: 0.82rem;
-    }
-
+    
     .actions {
         gap: 0.35rem;
         flex-shrink: 0;
         justify-content: flex-end;
+        border-radius: 0.3rem;
     }
+
+    .actions .profile {
+        width: auto;
+        height: 1.6rem;
+        border-radius: 0.35rem;
+    }
+
+    .actions .profile button {
+        font-size: 0.9rem;
+        padding: 0 .6rem .11rem;
+    }    
 
     .actions .search:not(.open) {
         width: 2.06rem;
@@ -333,6 +333,7 @@
         width: 12.8rem;
         height: 1.5rem;
         padding: 0 0.7rem 0 0.49rem;
+        border-radius: 0.3rem;
     }
 
     .searchInput {
