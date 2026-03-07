@@ -29,11 +29,13 @@ const Profile = () => {
     const [name, setName] = useState("Samuel Khanna");
     const [username, setUsername] = useState("sam96");
     const [location, setLocation] = useState("");
-    const [isEditingName, setIsEditingName] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
     const [isEditingUsername, setIsEditingUsername] = useState(false);
     const [showTagsDropdown, setShowTagsDropdown] = useState(false);
     const [selectedTags, setSelectedTags] = useState([]);
     const tagsSectionRef = useRef(null);
+    const inputRef = useRef(null);
+    const usernameRef = useRef(null);
     const [imagePreview, setImagePreview] = useState(null)
     const availableTags = [
         "Developer",
@@ -45,6 +47,70 @@ const Profile = () => {
         "Photographer"
     ];
     const remainingTagSlots = 3 - selectedTags.length;
+
+    // Recalculate width when fonts are fully loaded
+    useEffect(() => {
+        document.fonts.ready.then(() => {
+            if (inputRef.current) {
+                inputRef.current.style.width = "0px";
+                inputRef.current.style.width = inputRef.current.scrollWidth + "px";
+            }
+            if (usernameRef.current) {
+                usernameRef.current.style.width = "0px";
+                usernameRef.current.style.width = (usernameRef.current.scrollWidth + 4) + "px";
+            }
+        });
+    }, []);
+
+    // Auto resize input to text width
+    useEffect(() => {
+        //For name
+        if (inputRef.current) {
+            inputRef.current.style.width = "0px";
+            inputRef.current.style.width =
+                inputRef.current.scrollWidth + "px";
+        }
+
+        // Add this for Username
+        if (usernameRef.current) {
+            usernameRef.current.style.width = "0px";
+            usernameRef.current.style.width = usernameRef.current.scrollWidth + "px";
+        }
+    }, [name, username]);
+
+    const handleEditClick = () => {
+        setIsEditing(true);
+
+        setTimeout(() => {
+            inputRef.current?.focus();
+        }, 0);
+    };
+
+    const handleBlur = (e) => {
+        setIsEditing(false);
+
+        // Manually reset scroll position to the start for Firefox
+        if (e.target) {
+            e.target.scrollLeft = 0;
+        }
+    };
+
+    const handleUsernameBlur = (e) => {
+        setIsEditingUsername(false);
+        // Manually reset scroll position for the username input
+        if (e.target) {
+            e.target.scrollLeft = 0;
+        }
+    };
+
+    useEffect(() => {
+        if (isEditingUsername && usernameRef.current) {
+            usernameRef.current.focus();
+            // This moves the cursor to the end of the text instead of the start
+            const length = usernameRef.current.value.length;
+            usernameRef.current.setSelectionRange(length, length);
+        }
+    }, [isEditingUsername]);
 
     const handleImageClick = () => {
         imageFile.current?.click()
@@ -126,8 +192,6 @@ const Profile = () => {
         };
     }, []);
 
-
-
     return (
         <>
             <div className={Styles.navbarWrapper}>
@@ -154,7 +218,7 @@ const Profile = () => {
 
                             <div className={Styles.profilePic}>
                                 <div className={Styles.profilePhoto}>
-                                    <img src={imagePreview || ''} onChange={handleImageFileChange} alt="Profile" />
+                                    <img src={imagePreview || '/profile.jpg'} onChange={handleImageFileChange} alt="Profile" />
                                     <input
                                         type="file"
                                         accept="image/*"
@@ -235,21 +299,17 @@ const Profile = () => {
                             {/* <div className={`${Styles.wireframeBox} ${Styles.banner}`}> */}
                             <div className={Styles.profileInfo}>
                                 <div className={Styles.nameSection}>
-                                    {isEditingName ? (
-                                        <input
-                                            type="text"
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                            onBlur={() => setIsEditingName(false)}
-                                            className={Styles.nameInput}
-                                            autoFocus
-                                        />
-                                    ) : (
-                                        <h1 className={Styles.profileName}>{name}</h1>
-                                    )}
+                                    <input
+                                        ref={inputRef}
+                                        className={Styles.nameInput}
+                                        value={name}
+                                        readOnly={!isEditing}
+                                        onChange={(e) => setName(e.target.value)}
+                                        onBlur={handleBlur}
+                                    />
                                     <button
                                         className={Styles.editBtn}
-                                        onClick={() => setIsEditingName(!isEditingName)}
+                                        onClick={handleEditClick}
                                     >
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.4018 2.0607L13.2681 1.19446C13.9857 0.476847 15.1492 0.476847 15.8668 1.19446C16.5844 1.91208 16.5844 3.07556 15.8668 3.79318L15.0006 4.65943M12.4018 2.0607L6.57491 7.8876C6.13084 8.33175 5.81581 8.88807 5.6635 9.49734L5.03003 12.0312L7.56394 11.3977C8.1732 11.2455 8.72953 10.9304 9.17368 10.4863L15.0006 4.65943M12.4018 2.0607L15.0006 4.65943" stroke="#3C56B1" strokeWidth="1.3125" strokeLinejoin="round" />
@@ -264,7 +324,7 @@ const Profile = () => {
                                     <div className={Styles.usernameContainer}>
                                         <button className={Styles.userEditBtn} onClick={() => setIsEditingUsername(!isEditingUsername)}>
 
-                                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="14" height="14" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M7.48049 1.53735C7.91519 1.06638 8.13254 0.8309 8.36348 0.693542C8.92074 0.36211 9.60698 0.351802 10.1736 0.666353C10.4084 0.796717 10.6324 1.02557 11.0804 1.48328C11.5285 1.94098 11.7525 2.16984 11.8801 2.40971C12.1881 2.98849 12.178 3.68946 11.8535 4.25874C11.7191 4.49468 11.4885 4.71671 11.0275 5.16075L5.54202 10.4442C4.66835 11.2857 4.2315 11.7065 3.68554 11.9197C3.13957 12.1329 2.53937 12.1172 1.33896 12.0859L1.17564 12.0816C0.810198 12.072 0.627475 12.0672 0.521262 11.9467C0.415042 11.8262 0.429544 11.64 0.458547 11.2678L0.474297 11.0657C0.555923 10.0179 0.596733 9.49404 0.801332 9.02312C1.00592 8.55219 1.35884 8.16988 2.06467 7.40513L7.48049 1.53735Z" stroke="#606060" strokeWidth="0.875" strokeLinejoin="round" />
                                                 <path d="M6.85303 1.60435L10.9364 5.68769" stroke="#606060" strokeWidth="0.875" strokeLinejoin="round" />
                                                 <path d="M7.43677 12.1042H12.1034" stroke="#606060" strokeWidth="0.875" strokeLinecap="round" strokeLinejoin="round" />
@@ -272,23 +332,15 @@ const Profile = () => {
                                         </button>
 
                                         <span className="prefix">@</span>
-                                        {isEditingUsername ? (
-                                            <div>
-
-                                                <input
-                                                    type="text"
-                                                    value={username}
-                                                    onChange={(e) => setUsername(e.target.value)}
-                                                    onBlur={() => setIsEditingUsername(false)}
-                                                    className={Styles.usernameInput}
-                                                    autoFocus
-                                                />
-                                            </div>
-                                        ) : (
-                                            <span>
-                                                {username}
-                                            </span>
-                                        )}
+                                        <input
+                                            type="text"
+                                            ref={usernameRef}
+                                            value={username}
+                                            onChange={(e) => setUsername(e.target.value)}
+                                            readOnly={!isEditingUsername}
+                                            onBlur={handleUsernameBlur}
+                                            className={Styles.usernameInput}
+                                        />
                                     </div>
                                     <div className={Styles.tagsSection} ref={tagsSectionRef}>
                                         {selectedTags.map((tag) => (

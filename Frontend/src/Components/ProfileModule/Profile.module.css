@@ -59,12 +59,13 @@
   box-sizing: border-box;
   border-radius: 1.25rem;
 
-  background: rgba(255, 255, 255, 1.5);
+  background: rgba(255, 255, 255, 0.54);
 
   /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); */
   backdrop-filter: blur(12px);
   transition: all 0.5s ease;
   overflow: visible;
+  margin-top: 2.313rem;
   margin-bottom: 2rem;
   z-index: 1;
 }
@@ -97,18 +98,14 @@
   background-color: rgba(0, 0, 0, 0.25);
   border: 1px solid black;
   background-image:
-    linear-gradient(
-      to top right,
+    linear-gradient(to top right,
       transparent calc(50% - 1px),
       #4a4a4a 50%,
-      transparent calc(50% + 1px)
-    ),
-    linear-gradient(
-      to bottom right,
+      transparent calc(50% + 1px)),
+    linear-gradient(to bottom right,
       transparent calc(50% - 1px),
       #4a4a4a 50%,
-      transparent calc(50% + 1px)
-    );
+      transparent calc(50% + 1px));
 }
 
 /* Profile Pic overlap */
@@ -118,25 +115,18 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 220px;
-  height: 228px;
+  width: 13.753125rem;
+  height: 14.28625rem;
   aspect-ratio: 1 / 1;
-  margin-top: -4.3rem;
+  margin-top: -5.3rem;
   z-index: 10;
   border-radius: 0.9375rem;
   overflow: hidden;
-  background: #547eff42;
+  background: #c0d0ff;
   border-radius: 28.15px;
-  backdrop-filter: blur(100px);
+  backdrop-filter: blur(42.65px);
 }
-.profileName {
-  font-size: 36px;
-  width: 290px;
-  height: 53px;
-  font-weight: 500;
-  color: #3c56b1;
-  margin: 0;
-}
+
 /* Profile Header */
 
 .profileHeader {
@@ -201,25 +191,33 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-weight: 500;
-  color: #3c56b1;
 }
+
 .nameInput {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 500;
   color: #3c56b1;
-  background: transparent !important;
+  background: transparent;
   background-color: transparent !important;
   -webkit-appearance: none;
   appearance: none;
   border: none;
   outline: none;
   box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  min-width: 1ch;
+}
+
+.nameInput[readonly] {
+  cursor: default;
 }
 
 .editBtn {
   width: 1.75rem;
   height: 1.75rem;
+  margin-right: 2rem;
   border-radius: 0.375rem;
   background: transparent;
   border: none;
@@ -240,7 +238,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7056f5;
+  color: #3C56B1;
 }
 
 /* Username Section */
@@ -252,23 +250,26 @@
 }
 
 .usernameSection svg {
-  margin-right: 0.7rem;
+  margin-right: 0.625rem;
   width: 0.875rem;
   height: 0.875rem;
 }
+
 .usernameContainer {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  width: 121px;
-  height: 21px;
+  min-height: 25px; 
+  height: auto;
+  max-width: 200px;
   opacity: 1;
-  border-radius: 17px;
-  padding: 12px;
+  border-radius: 1.0625rem;
+  padding: 0 0.75rem ;
+  gap: 0.125rem;
   background-color: #dde4ff;
+  
 }
+
 .userEditBtn {
-  width: 1.75rem;
-  height: 1.75rem;
   border-radius: 0.375rem;
   background: transparent;
   border: none;
@@ -280,7 +281,7 @@
 }
 
 .usernameInput {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   padding: 0;
   color: #606060;
   background: transparent !important;
@@ -291,7 +292,21 @@
   box-shadow: none;
   outline: none;
   width: auto;
-  height: 21px;
+  padding-right: 2px;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  min-width: 1ch;
+  height: 25px;
+}
+
+.usernameInput[readonly] {
+  cursor: default;
+  user-select: none;
+}
+
+.usernameInput:not([readonly]) {
+  cursor: text;
 }
 
 /* Tags Section */
@@ -314,9 +329,9 @@
   min-height: 21px;
   border-radius: 17px;
   color: #ffffff;
-  padding: 4px;
+  padding: 0.09375rem 0.75rem ;
   background-color: #82a0ff;
-  font-size: 15px;
+  font-size: 0.9375rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -402,8 +417,8 @@
 }
 
 .locationSection svg {
-  width: 21px;
-  height: 21px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .locationInput {
@@ -416,12 +431,18 @@
   padding-left: 17px;
   gap: 10px;
   font-size: 0.875rem;
-  color: #7b7c86;
+  color: #606060;
   background-color: #e2e8ff;
   border: none;
   outline: none;
   flex: 1;
 }
+
+input::placeholder {
+  color: #606060 !important;
+  opacity: 1; 
+}
+
 /* Banner (FIX: Small Rectangular Box) */
 .banner {
   width: 50%;
@@ -431,31 +452,28 @@
 
 .closeBtn {
   position: absolute;
-  top: 1.25rem;
+  top: 1.688rem;
   right: 1.25rem;
   width: 1.5rem;
   height: 1.5rem;
   background-color: transparent;
   cursor: pointer;
-  opacity: 0.6;
   border-radius: 0.2rem;
-}
-.closeBtn svg {
-  color: #3c56b1;
 }
 
 /* SOCIAL BOX */
 .socialsBox {
-  background: linear-gradient(180deg, #dfe6ff 0%, #d7def9 100%);
-  border-radius: 32px;
-  padding: 50px 20px;
-  width: 90%;
+  background: rgba(127, 159, 255, 0.26);
+  border-radius: 1.759375rem;
+  backdrop-filter: blur(42.65px);
+
+  width: 13.659375rem;
   height: 14rem;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 15px;
 }
 
 /* ROW */
@@ -463,40 +481,40 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px 5px;
+  gap: 0 12px;
   width: 100%;
 }
 
 /* ICON */
 .iconWrapper {
-  width: 36px;
-  height: 36px;
+  width: 1.534rem;
+  height: 1.534rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #3f5fbf;
+  color: #3C56B1;
 }
 
 .iconWrapper svg {
-  width: 22px;
-  height: 22px;
+  width: 1.534rem;
+  height: 1.534rem;
+  display: block;
 }
 
 /* INPUT PILL */
 .inputPill {
-  width: 95px;
-  height: 25px;
+  width: 5.875rem;
+  height: 1.75rem;
 
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: #EDF2FF;
+
+  position: relative;
+  z-index: 1;
 
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.inputPill:focus-within {
-  background-color: #ffffff;
 }
 
 .socialInput {
@@ -504,22 +522,26 @@
   background: transparent;
   outline: none;
   width: 100%;
-  height: 25px;
+  height: 100%;
+  padding: 0 5px;
 
   font-family: "Poppins";
-  font-size: 9.5px;
-  color: #6d6d6d;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1rem;
+  color: #606060;
 }
 
 .socialInput::placeholder {
-  color: #7b7c86;
+  color: #606060;
+  opacity: 1; 
 }
 
 /* Bio & Badges */
 .bioBox {
-  background-color: #e0e7ff;
+  background-color: #E2E8FF;
   border-radius: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.563rem 1rem;
   min-height: 4.5rem;
   max-width: 40rem;
   display: flex;
@@ -534,8 +556,9 @@
   resize: none;
 
   font-family: "Poppins", sans-serif;
-  color: #7b7c86;
-  font-size: 0.95rem;
+  color: #606060;
+  font-size: 0.875rem;
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -610,19 +633,23 @@
 :global(.dark-theme) .temp {
   background: rgba(39, 39, 39, 0.55);
 }
+
 :global(.dark-theme) .wallsTitle,
 :global(.dark-theme) .sectionTitle,
 :global(.dark-theme) .socialInput,
 :global(.dark-theme) .iconWrapper {
   color: #a5b9ff;
 }
+
 :global(.dark-theme) .socialsBox,
 :global(.dark-theme) .bioBox {
   background-color: rgba(60, 86, 177, 0.15);
 }
+
 :global(.dark-theme) .inputPill {
   background-color: rgba(60, 86, 177, 0.2);
 }
+
 :global(.dark-theme) .emptyTitle {
   color: #a0a0a0;
 }
@@ -660,10 +687,6 @@
 
 :global(.dark-theme) .editPhotoBtn:hover {
   background: rgba(82, 48, 255, 1);
-}
-
-:global(.dark-theme) .profileName {
-  color: #fff;
 }
 
 :global(.dark-theme) .nameInput {
@@ -735,6 +758,7 @@
   .navbarWrapper {
     position: relative;
   }
+
   .footerWrapper {
     display: none;
   }
@@ -761,10 +785,12 @@
     flex-direction: column;
     gap: 1.5rem;
   }
+
   .leftCol,
   .rightCol {
     width: 100%;
   }
+
   .banner {
     height: 8rem;
   }
