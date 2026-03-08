@@ -11,6 +11,14 @@
   display: block;
 }
 
+/* ================= TABLET RESPONSIVENESS ================= */
+@media (min-width: 701px) and (max-width: 1195px) {
+
+  .image {
+    height: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .imgCard {
     border-radius: 1rem;
