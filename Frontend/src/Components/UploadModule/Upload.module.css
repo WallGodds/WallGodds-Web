@@ -35,9 +35,13 @@
     transition: border 0.2s ease;
 }
 
-input,
-input:focus,
-input:active {
+:global(.dark-theme) .input {
+    background: #ADADAD47 !important;
+}
+
+.input,
+.input:focus,
+.input:active {
     background: #E2E8FF;
 }
 
@@ -45,11 +49,16 @@ input:active {
   height: 95px;
  resize: none;
 }
+
 .fieldwallpaper .input.description {
     height: 95px;
     resize: none;
 }
 
+:global(.dark-theme) .fieldwallpaper .input.description {
+    background: #ADADAD47;
+    color: #A9A9A9 !important;
+}
 
 .row {
     display: flex;
@@ -83,14 +92,30 @@ input:active {
     transition: border 0.2s ease;
 }
 
+:global(.dark-theme) .fieldwallpaper .input {
+    background: #ADADAD47;
+    color: #A9A9A9 !important;
+}
+
 .form {
     flex-direction: column;
     display: flex;
-
 }
 
 .placeholder {
     color: #707172;
+}
+
+.input::placeholder {
+    color: #707172;
+}
+
+:global(.dark-theme) .placeholder {
+    color: #A9A9A9 !important;
+}
+
+:global(.dark-theme) .input::placeholder {
+    color: #A9A9A9 !important;
 }
 
 .submitRow {
@@ -136,7 +161,7 @@ input:active {
 }
 
 .uploadBtn {
-    height: 24px;
+    height: 28px;
     background-color: #5f71fe;
     backdrop-filter: blur(11.949999809265137px);
     color: #ffffff;
@@ -478,6 +503,7 @@ input[type="checkbox"].checkboxError:not(:checked) {
     display: flex;
     align-items: center;
     margin-left: 3rem;
+    padding: 1.5rem 0;
     gap: 20px;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -485,11 +511,9 @@ input[type="checkbox"].checkboxError:not(:checked) {
     z-index: 2;
 }
 
-
 .uploadoption {
-    width: 284px;
-    height: 299px;
-    margin-top: 5px;
+    width: 280px;
+    height: 300px;
     background-color: #C2C8FF70;
     border-radius: 13.43px;
     display: flex;
@@ -503,6 +527,11 @@ input[type="checkbox"].checkboxError:not(:checked) {
     background-size: 100% 100%;
 }
 
+:global(.dark-theme) .uploadoption {
+    border-color: #A5B9FF;
+    background-color: #272727CC;
+}
+
 .uploadtext {
     width: 175px;
     height: 21px;
@@ -512,6 +541,10 @@ input[type="checkbox"].checkboxError:not(:checked) {
     font-size: 14px;
     letter-spacing: 0;
     line-height: 100%;
+}
+
+:global(.dark-theme) .uploadtext {
+    color: #AAB2FD;
 }
 
 .uploadcontainer {
@@ -524,6 +557,10 @@ input[type="checkbox"].checkboxError:not(:checked) {
 
 .uploadicon {
     display: block;
+}
+
+:global(.dark-theme) .uploadicon {
+    color: #3E4B72;
 }
 
 .previewImage {
@@ -549,6 +586,10 @@ input[type="checkbox"].checkboxError:not(:checked) {
     color: #3754b1;
     margin: 0 0 2rem;
     transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(.dark-theme) .yourWallsTitle {
+    color: #3C56B1 !important;
 }
 
 .yourWallsPlaceholder {
