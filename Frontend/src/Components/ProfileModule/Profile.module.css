@@ -631,33 +631,80 @@ input::placeholder {
 
 /* Dark Theme Overrides */
 :global(.dark-theme) .temp {
-  background: rgba(39, 39, 39, 0.55);
+background: rgba(0, 0, 0, 0.27);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+  
 }
 
-:global(.dark-theme) .wallsTitle,
-:global(.dark-theme) .sectionTitle,
-:global(.dark-theme) .socialInput,
 :global(.dark-theme) .iconWrapper {
-  color: #a5b9ff;
-}
-
-:global(.dark-theme) .socialsBox,
-:global(.dark-theme) .bioBox {
-  background-color: rgba(60, 86, 177, 0.15);
+  color: #3C56B1;
 }
 
 :global(.dark-theme) .inputPill {
-  background-color: rgba(60, 86, 177, 0.2);
+  background: rgba(173, 173, 173, 0.28);
 }
 
-:global(.dark-theme) .emptyTitle {
-  color: #a0a0a0;
+:global(.dark-theme) .socialInput{
+   background: rgba(173, 173, 173, 0.28);
+   color: #A8A8A8 ;
+}
+:global(.dark-theme) .inputPill input::placeholder,
+:global(.dark-theme) .socialInput input::placeholder 
+{
+    color: #A8A8A8 !important;;
 }
 
-.locationInput::placeholder {
-  color: #7b7c86;
-  opacity: 0.7;
+:global(.dark-theme) .socialsBox{
+ background: rgba(127, 159, 255, 0.26);
+ backdrop-filter: blur(42.646263122558594px)
+
 }
+:global(.dark-theme) .profilePic{
+  background: rgba(84, 126, 255, 0.26);
+  backdrop-filter: blur(42.65px);
+}
+:global(.dark-theme) .bioBox {
+   background: rgba(173, 173, 173, 0.28);
+   
+}
+:global(.dark-theme) .bioBox textarea {
+  color: #A8A8A8;
+}
+
+:global(.dark-theme) .bioBox textarea::placeholder {
+   color: #A8A8A8;
+}
+:global(.dark-theme) .sectionTitle{
+  color: #5F71FE;
+}
+:global(.dark-theme) .badgeCircle{
+    background-color:#82A0FF;
+} 
+
+:global(.dark-theme) .wallsTitle{
+  color:#5F71FE;
+}
+:global(.dark-theme).emptyTitle{
+  color: #808080;
+}
+:global(.dark-theme) .emptySubtitle{
+  color:#C4C4C4;
+}
+
+:global(.dark-theme) .locationSection svg path{
+ stroke:#6D7DAF;
+
+}
+:global(.dark-theme) .locationInput{
+  background: rgba(112, 112, 112, 0.47);
+  color:#A8A8A8;
+}
+
+:global(.dark-theme) .locationInput::placeholder {
+    color:#A8A8A8 !important;
+}
+
 
 /* Gallery Section */
 .gallerySection {
@@ -673,82 +720,71 @@ input::placeholder {
 }
 
 /* Dark Theme */
-:global(.dark-theme) .profileCard {
-  background: rgba(39, 39, 39, 0.54);
+:global(.dark-theme) .editPhotoBtn { 
+  background: #ABB3FE;
+}
+:global(.dark-theme) .editPhotoBtn svg path {
+ stroke: #3C56B1;
 }
 
-:global(.dark-theme) .profilePhoto {
-  background: #434343;
-}
-
-:global(.dark-theme) .editPhotoBtn {
-  background: rgba(82, 48, 255, 0.87);
-}
-
-:global(.dark-theme) .editPhotoBtn:hover {
-  background: rgba(82, 48, 255, 1);
-}
 
 :global(.dark-theme) .nameInput {
-  color: #fff;
-  border-bottom-color: rgba(82, 48, 255, 0.5);
+ color: #82A0FF;
 }
 
-:global(.dark-theme) .nameInput:focus {
-  border-bottom-color: rgba(82, 48, 255, 1);
+:global(.dark-theme) .editBtn svg path {
+ background:transparent;
+ stroke: #82A0FF;
 }
 
-:global(.dark-theme) .editBtn {
-  background: rgba(67, 67, 67, 0.87);
-  color: #5230ff;
+:global(.dark-theme) .editBtn{
+background:transparent;
 }
 
-:global(.dark-theme) .editBtn:hover {
-  background: rgba(67, 67, 67, 1);
+:global(.dark-theme) .shareBtn svg circle{
+   stroke: #82A0FF  !important;
 }
 
-:global(.dark-theme) .shareBtn {
-  background: rgba(67, 67, 67, 0.87);
-  color: #5230ff;
+:global(.dark-theme) .shareBtn svg [fill]:not([fill="none"]) {
+  fill: #82A0FF  !important;
+}
+:global(.dark-theme) .shareBtn svg path{
+  stroke: #82A0FF  !important;
 }
 
-:global(.dark-theme) .shareBtn:hover {
-  background: rgba(67, 67, 67, 1);
+:global(.dark-theme) .shareBtn{
+background: transparent;
 }
 
-:global(.dark-theme) .usernameSection {
-  color: #b0b0b0;
+:global(.dark-theme) .usernameInput{
+  color: #A8A8A8;
 }
 
-:global(.dark-theme) .username {
-  color: #b0b0b0;
+:global(.dark-theme) :global(.prefix){
+  color:#A8A8A8 !important;
 }
 
-:global(.dark-theme) .username:hover {
-  color: #5230ff;
+:global(.dark-theme) .userEditBtn svg path {
+    stroke:#A8A8A8;  
 }
 
-:global(.dark-theme) .usernameInput {
-  color: #b0b0b0;
-  border-bottom-color: rgba(82, 48, 255, 0.5);
-}
-
-:global(.dark-theme) .usernameInput:focus {
-  border-bottom-color: rgba(82, 48, 255, 1);
+:global(.dark-theme) .usernameContainer{
+  background: rgba(112, 112, 112, 0.45);
 }
 
 :global(.dark-theme) .addTagBtn {
-  background: rgba(82, 48, 255, 0.1);
-  border-color: rgba(82, 48, 255, 0.5);
-  color: #5230ff;
+  background: #3C56B1;
+  color: #FFFFFF;
 }
 
-:global(.dark-theme) .addTagBtn:hover {
-  background: rgba(82, 48, 255, 0.2);
-  border-color: rgba(82, 48, 255, 0.8);
+:global(.dark-theme) .selectedTagPill{
+  background: rgba(130, 160, 255, 1);
+  color: #FFFFFF;
+  border-color: rgba(82, 48, 255, 0.5);
 }
 
 :global(.dark-theme) .tagsDropdown {
+ 
   background: rgba(39, 39, 39, 0.95);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
