@@ -127,21 +127,13 @@
     color: white;
 }
 
-/* Cross-browser select + option styling for dark theme. */
-:global(.dark-theme) select.input,
-:global(.dark-theme) select.input:focus,
-:global(.dark-theme) select.input:active {
+:global(.dark-theme) select.input option {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: #373737 !important;
-    color: #ffffff !important;
-    color-scheme: dark;
-}
-
-:global(.dark-theme) select.input option {
     background-color: #373737;
     color: #ffffff;
+    color-scheme: dark;
 }
 
 .submitRow {
