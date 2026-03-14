@@ -205,11 +205,25 @@
   }
 
   .temp {
-    width: 650px;
+    width: 658px;
     margin-bottom: 1.6rem;
     align-items: flex-start;
     padding: 0 2px;
     box-sizing: border-box;
+  }
+
+  .categoryCard{
+    min-width: 5.03rem;
+    height: 1.9rem ;
+    border-radius: 1.62913rem;
+  }
+
+  .categoryCard::after {
+  border-radius: 1.62913rem;
+  } 
+
+  .categoryTitle {
+  font-size: 0.8rem;
   }
 }
 

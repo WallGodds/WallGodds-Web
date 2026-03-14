@@ -2,14 +2,30 @@
   width: 100%;
   max-width: 1048px; /* figma container width */
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
 
+.container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px; /* figma gap */
+  gap: 15px; /* figma gap */
+}
+
+@media (min-width: 768px) and (max-width: 1195px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); 
+    padding: 0 1.5rem; 
+    gap: 15px; 
+  }
+
+  .container{
+    width: 659px;
+  }
 }
 
 /* For mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .grid {
     grid-template-columns: 1fr;
     padding: 0 1.2rem;
