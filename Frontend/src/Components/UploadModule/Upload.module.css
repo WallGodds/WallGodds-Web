@@ -35,21 +35,34 @@
     transition: border 0.2s ease;
 }
 
-input,
-input:focus,
-input:active {
+.input,
+.input:focus,
+.input:active {
     background: #E2E8FF;
+    color: #333333;
+}
+
+:global(.dark-theme) .input,
+:global(.dark-theme) .input:focus,
+:global(.dark-theme) .input:active {
+    background: #ADADAD47 !important;
+    color: #A9A9A9 !important;
 }
 
 .textarea {
-  height: 95px;
- resize: none;
+    height: 95px;
+    resize: none;
 }
+
 .fieldwallpaper .input.description {
     height: 95px;
     resize: none;
 }
 
+:global(.dark-theme) .fieldwallpaper .input.description {
+    background: #ADADAD47;
+    color: #A9A9A9 !important;
+}
 
 .row {
     display: flex;
@@ -83,14 +96,51 @@ input:active {
     transition: border 0.2s ease;
 }
 
+:global(.dark-theme) .fieldwallpaper .input {
+    background: #ADADAD47;
+    color: #A9A9A9 !important;
+}
+
 .form {
     flex-direction: column;
     display: flex;
-
 }
 
 .placeholder {
     color: #707172;
+}
+
+.input::placeholder {
+    color: #707172;
+}
+
+:global(.dark-theme) .placeholder {
+    color: #A9A9A9 !important;
+}
+
+:global(.dark-theme) .input::placeholder {
+    color: #A9A9A9 !important;
+}
+
+:global(.dark-theme) .input option {
+    background-color: #373737;
+    color: white;
+}
+
+/* Firefox-only select focus background in dark theme. */
+@-moz-document url-prefix() {
+    :global(.dark-theme) select.input:focus {
+        background-color: #373737 !important;
+    }
+}
+
+:global(.dark-theme) select.input option {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #373737;
+    color: #ffffff;
+    color-scheme: dark;
 }
 
 .submitRow {
@@ -121,7 +171,6 @@ input:active {
     border-radius: 4px;
     margin: 0;
     box-sizing: border-box;
-
 }
 
 .previewFormContainer {
@@ -136,7 +185,7 @@ input:active {
 }
 
 .uploadBtn {
-    height: 24px;
+    height: 28px;
     background-color: #5f71fe;
     backdrop-filter: blur(11.949999809265137px);
     color: #ffffff;
@@ -229,6 +278,23 @@ input[type="checkbox"].checkboxError:not(:checked) {
 
 .container::-webkit-scrollbar {
     display: none;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .uploadBox::before {
+        background: rgba(255, 255, 255, 0.92);
+    }
+
+    :global(.dark-theme) .uploadBox::before {
+        background: rgba(39, 39, 39, 0.82);
+    }
+
+    .uploadBtn,
+    .error,
+    .submitRow input[type="checkbox"],
+    .fieldwallpaper .input {
+        backdrop-filter: none;
+    }
 }
 
 
@@ -478,6 +544,7 @@ input[type="checkbox"].checkboxError:not(:checked) {
     display: flex;
     align-items: center;
     margin-left: 3rem;
+    padding: 1.5rem 0;
     gap: 20px;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -485,22 +552,25 @@ input[type="checkbox"].checkboxError:not(:checked) {
     z-index: 2;
 }
 
-
 .uploadoption {
-    width: 284px;
-    height: 299px;
-    margin-top: 5px;
+    width: 280px;
+    height: 300px;
     background-color: #C2C8FF70;
     border-radius: 13.43px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     align-items: center;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='1.5' y='1.5' width='calc(100%25 - 3px)' height='calc(100%25 - 3px)' fill='none' rx='13.43' ry='13.43' stroke='%237e93d6' stroke-width='2' stroke-dasharray='6%2c 6' stroke-linecap='round'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
+}
+
+:global(.dark-theme) .uploadoption {
+    border-color: #A5B9FF;
+    background-color: #272727CC;
 }
 
 .uploadtext {
@@ -514,16 +584,24 @@ input[type="checkbox"].checkboxError:not(:checked) {
     line-height: 100%;
 }
 
+:global(.dark-theme) .uploadtext {
+    color: #AAB2FD;
+}
+
 .uploadcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;        
+    gap: 10px;
     cursor: pointer;
 }
 
 .uploadicon {
     display: block;
+}
+
+:global(.dark-theme) .uploadicon {
+    color: #3E4B72;
 }
 
 .previewImage {
@@ -549,6 +627,10 @@ input[type="checkbox"].checkboxError:not(:checked) {
     color: #3754b1;
     margin: 0 0 2rem;
     transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:global(.dark-theme) .yourWallsTitle {
+    color: #3C56B1 !important;
 }
 
 .yourWallsPlaceholder {
@@ -637,7 +719,7 @@ input[type="checkbox"].checkboxError:not(:checked) {
 
 :global(.dark-theme) .uploadIcon {
     max-width: 15rem;
-    margin : auto;
+    margin: auto;
 }
 
 :global(.dark-theme) .dragText {
@@ -648,11 +730,11 @@ input[type="checkbox"].checkboxError:not(:checked) {
     color: #6b78a0;
 }
 
-:global(.dark-theme) .and{
+:global(.dark-theme) .and {
     color: #aab2fd;
 }
 
-:global(.dark-theme) .photoText{
+:global(.dark-theme) .photoText {
     color: #aab2fd;
 }
 
