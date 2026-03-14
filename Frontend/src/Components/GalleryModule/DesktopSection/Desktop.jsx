@@ -22,9 +22,11 @@ const Desktop = () => {
 
   return (
     <div className={styles.grid}>
-      {images.map((src, i) => (
+      <div className={styles.container}>
+        {images.map((src, i) => (
         <ImgCard key={i} src={src} />
       ))}
+      </div>
     </div>
   );
 };

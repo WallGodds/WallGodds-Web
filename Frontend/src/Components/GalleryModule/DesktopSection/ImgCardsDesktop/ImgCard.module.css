@@ -13,8 +13,18 @@
   display: block;
 }
 
+/* For tablet */
+@media (min-width: 768px) and (max-width: 1195px) {
+  .card{
+    width: 321.03px;
+  }
+  .card img {
+    border-radius: 0.59819rem;
+  }
+}
+
 /* For mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .card img {
     border-radius: 0.59819rem;
   }
