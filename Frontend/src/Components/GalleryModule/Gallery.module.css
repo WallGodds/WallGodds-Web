@@ -16,7 +16,7 @@
 /* Navbar Animation State for Gallery */
 .galleryNavbar {
   --translate-y: calc(var(--scroll-progress, 0) * -95%);
-  --scale-val: calc(1 - (var(--scroll-progress, 0) * 0.17));
+  --scale-val: calc(1 - (var(--scroll-progress, 0) * 0.1));
   
   transform: translateY(var(--translate-y)) scale(var(--scale-val));
   transform-origin: top center;
@@ -230,6 +230,10 @@
 /* ================= MOBILE ONLY ================= */
 
 @media (max-width: 700px) {
+  .galleryNavbar{
+     --translate-y: calc(var(--scroll-progress, 0) * -111%);
+  }
+
   .container {
     height: 100dvh;
     overflow: hidden;
@@ -290,11 +294,5 @@
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-  }
-}
-
-@media (max-width: 700px) {
-  .container {
-    padding-top: 5.375rem;
   }
 }

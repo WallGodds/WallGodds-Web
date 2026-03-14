@@ -86,7 +86,7 @@ const Gallery = () => {
       route: "/gallery/mobile",
     },
   ];
-  
+
 
   useEffect(() => {
     if (location.pathname === "/gallery" || location.pathname === "/gallery/") {
@@ -98,7 +98,7 @@ const Gallery = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-  
+
   // Navbar Scroll Logic
   // Navbar Scroll Logic
   const navbarRef = useRef(null);
@@ -108,56 +108,20 @@ const Gallery = () => {
 
   // Sequential Scroll Logic (Non-passive listener to control event)
   useEffect(() => {
-    const handleWheelSeq = (e) => {
-      // Prevent default browser scrolling
-      e.preventDefault();
+    const scrollArea = scrollAreaRef.current;
+    if (!scrollArea) return;
 
-      const delta = e.deltaY;
+    const handleScroll = () => {
       const maxScroll = 250;
-      const maxContentScroll = 120;
-      const scrollArea = scrollAreaRef.current;
+      const maxContentScroll = window.innerWidth <= 700 ? 55 : 120;
 
-      if (!navbarRef.current || !contentWrapperRef.current || !scrollArea) return;
+      let scrollTop = scrollArea.scrollTop;
 
-      // Current State
-      let currentNavPos = navbarScrollPos.current;
-      let currentContentScroll = scrollArea.scrollTop;
+      let navPos = Math.min(scrollTop, maxScroll);
+      navbarScrollPos.current = navPos;
 
-      // Logic:
-      // Scroll DOWN (delta > 0): Navbar Shrinks FIRST -> Then Content Scrolls
-      // Scroll UP (delta < 0): Navbar Expands FIRST -> Then Content Scrolls Up
+      const progress = (navPos / maxScroll) * 1.1;
 
-      const navbarShrinkSpeed = 0.8;
-      const navbarExpandSpeed = 1.5; // Fast expansion
-      const contentSpeed = 0.25; // Even slower content scroll
-
-      if (delta > 0) {
-        // SCROLLING DOWN
-        if (currentNavPos < maxScroll) {
-          // Priority 1: Shrink Navbar
-          currentNavPos += delta * navbarShrinkSpeed;
-          currentNavPos = Math.min(currentNavPos, maxScroll);
-        } else {
-          // Priority 2: Scroll Content
-          scrollArea.scrollTop += delta * contentSpeed;
-        }
-      } else {
-        // SCROLLING UP
-        if (currentNavPos > 0) {
-          // Priority 1: Expand Navbar immediately
-          currentNavPos += delta * navbarExpandSpeed;
-          currentNavPos = Math.max(currentNavPos, 0);
-        } else {
-          // Priority 2: Scroll Content Up (only if navbar is fully expanded)
-          scrollArea.scrollTop += delta * contentSpeed;
-        }
-      }
-
-      // Update Refs/State
-      navbarScrollPos.current = currentNavPos;
-
-      // Apply Animations based on new NavPos
-      const progress = currentNavPos / maxScroll;
       navbarRef.current.style.setProperty("--scroll-progress", progress);
 
       const contentTranslate = progress * -maxContentScroll;
@@ -167,13 +131,9 @@ const Gallery = () => {
       );
     };
 
-    // Attach non-passive listener to window or container
-    // Attaching to window ensures we catch it everywhere (including over navbar)
-    window.addEventListener("wheel", handleWheelSeq, { passive: false });
+    scrollArea.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("wheel", handleWheelSeq);
-    };
+    return () => scrollArea.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleMouseDown = (e) => {
@@ -208,7 +168,7 @@ const Gallery = () => {
 
       {/* Main Scroll Container */}
       <div className={Styles.container}>
-        
+
         {/* Scrollable Content Wrapper */}
         <div className={Styles.contentWrapper} ref={contentWrapperRef}>
           {/* Device Selector */}
@@ -254,12 +214,12 @@ const Gallery = () => {
 
           <div className={Styles.galleryScrollArea} ref={scrollAreaRef}>
             {activeDevice === "mobile" && <Mobile />}
-            
+
             <Routes>
               <Route path="desktop" element={<Desktop />} />
               <Route path="tablet" element={<Tablet />} />
             </Routes>
-            
+
             <div className={Styles.footerWrapper}>
               <Footer />
             </div>
