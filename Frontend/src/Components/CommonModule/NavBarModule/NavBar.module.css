@@ -250,6 +250,32 @@
     width: 100%;
     height: 100%;
 }
+.hamburgerMobile{
+    display: none;
+}
+
+.hamburgerBg {
+    fill: #ffffff;
+    transition: fill 0.2s ease;
+}
+
+.hamburgerLines {
+    stroke: #141b34;
+    transition: stroke 0.2s ease;
+}
+
+.hamburgerActive {
+    background: transparent;
+}
+
+.hamburgerActive .hamburgerBg {
+    fill: #806eed;
+}
+
+.hamburgerActive .hamburgerLines {
+    stroke: #141b34; /* keep lines the same color when active */
+}
+
 
 /* Tablet Portrait + Landscape */
 @media (min-width: 701px) and (max-width: 1195px) {
@@ -411,9 +437,14 @@
     background: rgba(255, 255, 255, 0.87);
   }
 
+  /* keep hamburger transparent to avoid white halo on active state */
+  .actions .hamburger {
+    background: transparent !important;
+  }
+
   .hamburger svg {
-    width: 1.34rem;
-    height: 1.34rem;
+    width: 100%;
+    height: 100%;
     display: block;
     flex-shrink: 0 !important;
   }
@@ -538,40 +569,123 @@
     transition: all 0.2s ease;
   }
 
-  .mobileOverlay {
-    position: absolute;
-    top: 5.5rem;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 95%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    border-radius: 0.2rem;
-    padding: 2rem;
-    z-index: 1000;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  .hamburgerMobile{
+    display: inline-flex;
+    width: 4px;
+    height: 4px;
+    border-radius: 1.5px;
+    background-color: #806EED;
+}
+
+  .mobileIcon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        background: transparent;
+        color: #000;
+        transition: background 0.2s ease, color 0.2s ease;
+        flex: 0 0 auto;
   }
+
+  .mobileIcon svg {
+        width: 12px;
+        height: 12px;
+        display: block;
+  }
+
+  .mobileIconActive {
+        background: #806EED;
+        color: #000;
+  }
+
+    .mobileOverlayWrapper {
+        position: absolute;
+        top: 5.3rem;
+        right: 1rem;
+        width: min(106px, calc(100vw - 2rem));
+        height: 96px;
+        z-index: 999;
+        backdrop-filter: blur(33.54999923706055px);
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .mobileOverlay {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.23);
+        transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0.5rem;
+        padding: 12px;
+    }
 
   :global(.dark-theme) .mobileOverlay {
-    background: rgba(25, 25, 25, 0.95);
+        background: rgba(0, 0, 0, 0.38);
   }
 
-  .mobileMenu {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 0;
-    text-align: center;
-  }
+    .mobileMenu {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+    }
 
-  .mobileMenu a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.25rem;
-    font-weight: 500;
-  }
+    .mobileMenu li {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.15rem 0;
+    }
+
+    .mobileMenu a {
+        text-decoration: none;
+        color: inherit;
+        display: inline-flex;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-transform: capitalize;
+    }
+
+
+    .mobileJoinButton {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 78px;
+        height: 26px;
+        border-radius: 6px;
+        padding: 7px 10px;
+        box-sizing: border-box;
+        opacity: 1;
+        margin-top: 5px;
+        align-self: flex-start;
+        background: rgba(82, 105, 255, 0.95);
+        color: #fff !important;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-transform: capitalize;
+    }
 }
 :global(.dark-theme) .navbar {
     background: rgba(0, 0, 0, 0.38);
@@ -638,4 +752,7 @@
 
 :global(.dark-theme) .hamburgerLines {
     stroke: #ffffff;
+}
+:global(.dark-theme) .hamburgerActive .hamburgerBg {
+    fill: #806eed;
 }

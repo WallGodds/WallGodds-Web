@@ -1,4 +1,6 @@
+/* eslint-disable react/display-name */
 import { NavLink } from "react-router-dom";
+import { createPortal } from "react-dom";
 import Style from "./NavBar.module.css";
 import ThemeToggle from "../../ThemeModule/ThemeToggle";
 import { useState, useRef, useEffect, forwardRef } from "react";
@@ -102,29 +104,63 @@ const NavBar = forwardRef(({ className }, ref) => {
                     </NavLink>
                 </div>
                <button
-               className={Style.hamburger}
+               className={`${Style.hamburger} ${menuOpen ? Style.hamburgerActive : ""}`}
                onClick={() => {
                 setSearchOpen(false);   // close search
                 setMenuOpen(!menuOpen); // keep existing behavior
                  }}>
-                    <svg
-                        width="45"
-                        height="43"
-                        viewBox="0 0 45 43"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <foreignObject x="-4" y="-4" width="53" height="51">
-                            <div
-                                xmlns="http://www.w3.org/1999/xhtml"
-                                style={{
-                                    backdropFilter: "blur(2px)",
-                                    clipPath:
-                                        "url(#bgblur_0_3070_812_clip_path)",
-                                    height: "100%",
-                                    width: "100%",
-                                }}></div>
-                        </foreignObject>
-                        <g data-figma-bg-blur-radius="4">
+                    {menuOpen ? (
+                        <svg
+                            width="45"
+                            height="43"
+                            viewBox="0 0 45 43"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <rect
+                                    className={Style.hamburgerBg}
+                                    width="45"
+                                    height="43"
+                                    rx="10"
+                                />
+                                <path
+                                    className={Style.hamburgerLines}
+                                    d="M13 15.5H27"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                                <path
+                                    className={Style.hamburgerLines}
+                                    d="M13 21.5H23"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                                <path
+                                    className={Style.hamburgerLines}
+                                    d="M13 27.5H27"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                                <path
+                                    className={Style.hamburgerLines}
+                                    d="M31 17.5L29.8462 18.3765C27.9487 19.818 27 20.5388 27 21.5C27 22.4612 27.9487 23.182 29.8462 24.6235L31 25.5"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </g>
+                        </svg>
+                    ) : (
+                        <svg
+                            width="45"
+                            height="43"
+                            viewBox="0 0 45 43"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                        <g>
                             <rect
                                 className={Style.hamburgerBg}
                                 width="45"
@@ -164,7 +200,7 @@ const NavBar = forwardRef(({ className }, ref) => {
                                 <rect width="45" height="43" rx="10" />
                             </clipPath>
                         </defs>
-                    </svg>
+                    </svg>)}
                 </button>
 
                 <div
@@ -174,34 +210,50 @@ const NavBar = forwardRef(({ className }, ref) => {
                     <ThemeToggle />
                 </div>
             </div>
-            {menuOpen && (
-                <div className={Style.mobileOverlay}>
-                    <ul className={Style.mobileMenu}>
-                        <li>
-                            <NavLink
-                                to="/gallery"
-                                onClick={() => setMenuOpen(false)}>
-                                Gallery
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/upload"
-                                onClick={() => setMenuOpen(false)}>
-                                Upload
-                            </NavLink>
-                        </li>
-                        <li>
-                            <a
-                                href="https://github.com/WallGodds"
-                                target="_blank"
-                                rel="noreferrer">
-                                Github
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            )}
+            {menuOpen &&
+                createPortal( // Render at document.body level so backdrop-filter blur applies correctly.
+                    <div className={Style.mobileOverlayWrapper}>
+                        <div className={Style.mobileOverlay}>
+                            <ul className={Style.mobileMenu}>
+                                <li>
+                                    <NavLink
+                                        to="/gallery"
+                                        onClick={() => setMenuOpen(false)}>
+                                        Gallery
+                                    </NavLink>
+                                        <span className={`${
+                                        location.pathname.startsWith("/gallery")
+                                            ? Style.hamburgerMobile
+                                            : ""
+                                    }`}></span>
+                                    
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to="/upload"
+                                        onClick={() => setMenuOpen(false)}>
+                                        Upload
+                                    </NavLink>
+                                        <span className={`${
+                                        location.pathname.startsWith("/upload")
+                                            ? Style.hamburgerMobile
+                                            : ""
+                                    }`}></span>
+                                    
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to="/profile"
+                                        className={Style.mobileJoinButton}
+                                        onClick={() => setMenuOpen(false)}>
+                                        Join Here
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>,
+                    document.body
+                )}
         </div>
 
         {isMobile && isUploadPage && (
